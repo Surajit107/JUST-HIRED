@@ -1,0 +1,66 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+const FilterJobResult = () => {
+    return (
+        <>
+            <div className="col-lg-4 col-md-12">
+                <div className="Job-Category-box">
+                    <p className="title">Job Category</p>
+                    <ul>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Web Developer (54)</Link></li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">User Experience Design (21)</Link>
+                        </li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Digital Marketer (72)</Link></li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Branding and promotion (54)</Link>
+                        </li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">User Experience Design (21)</Link>
+                        </li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Digital Marketer (72)</Link></li>
+                    </ul>
+                </div>
+                <div className="Job-Nature-box">
+                    <p className="title">Job Nature</p>
+                    <ul>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Full Time jobs</Link></li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Part Time jobs</Link></li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Hourly</Link></li>
+                    </ul>
+                </div>
+                <div className="Salary-Range-box">
+
+                    {/* Salary Range< */}
+                    {/*<p className="title">Salary Range</p>
+                    <p>
+                        <input type="text" id="amount1" className="salery-range" /> <i className="fa fa-minus minus"></i>
+                        <input type="text" id="amount2" className="salery-range" />
+                    </p>
+                     <div id="slider-range"></div> */}
+
+                    <p className="small-title">Experience Level</p>
+                    <form action="#" className="search-box_search_form">
+                        <select className="dropdown_item_select search-box_search_input">
+                            <option>Select experience level</option>
+                            <option>Select experience level1</option>
+                            <option>Select experience level2</option>
+                        </select>
+                        <p className="small-title">Location</p>
+                        <input className="search-box_search_input Location " placeholder="Location" required="required"
+                            type="search" />
+                        <span className="fa fa-map-marker location-icone"></span>
+                    </form>
+                </div>
+                <div className="Industry-box">
+                    <p className="title">Industry</p>
+                    <ul>
+                        <li className="deactivate"><Link to="#!" className="font-color-black">Full Time jobs</Link></li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Part Time jobs</Link></li>
+                        <li className="list-item1 "><Link to="#!" className="font-color-black">Hourly</Link></li>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default FilterJobResult

@@ -1,9 +1,36 @@
 import React from 'react'
+import Banner from '../components/common/Banner'
+import Search from '../components/common/Search'
+import Category from '../components/core/home/Category'
+import FeatureadCompany from '../components/core/home/FeatureadCompany'
+import JobGet from '../components/core/home/JobGet'
+import RecentJob from '../components/core/home/RecentJob'
+import WhyUs from '../components/core/home/WhyUs'
 
 const Home = () => {
   return (
     <>
-      <h1>Home</h1>
+      {/* Banner */}
+      <Banner />
+
+      {/* Search */}
+      <Search />
+
+      {/* Job Category */}
+      <Category />
+
+      {/* Recent Job */}
+      <RecentJob />
+
+      {/* Featured Company */}
+      <FeatureadCompany />
+
+      {/* Why Us */}
+      <WhyUs />
+
+      {/* Job Get */}
+      <JobGet />
+
     </>
   )
 }
