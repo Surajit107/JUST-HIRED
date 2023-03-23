@@ -23,31 +23,12 @@ const Navbar = () => {
                                     </div>
                                     <nav className="main_nav_contaner ml-auto">
                                         <ul className="main_nav">
-                                            <li className="dropdown active ">
-                                                <Link className="dropdown-toggle" data-toggle="dropdown" to="#">Home
-                                                    <span className="caret"></span></Link>
-                                                <ul className="dropdown-menu">
-                                                    <li><Link to="index.html">Home variation 1</Link></li>
-                                                    <li><Link to="index2.html">Home variation 2</Link></li>
-                                                </ul>
-                                            </li>
-                                            <li className="dropdown ">
-                                                <Link className="dropdown-toggle" data-toggle="dropdown" href="#">Job
-                                                    <span className="caret"></span></Link>
-                                                <ul className="dropdown-menu">
-                                                    <li><Link to="job_category.html">Job List</Link></li>
-                                                    <li><Link to="job_detail.html">Job Detail</Link></li>
-                                                </ul>
-                                            </li>
-                                            <li><Link to="blog_page.html"> Blog</Link></li>
-                                            <li><Link to="about_us.html">About</Link></li>
-                                            <li><Link to="contact.html">Contact</Link></li>
+                                            <li><Link to="/">Home</Link></li>
+                                            <li><Link to="/aboutus">About</Link></li>
+                                            <li><Link to="/jobs">Job</Link></li>
+                                            <li><Link to="/blog"> Blog</Link></li>
+                                            <li><Link to="/contactus">Contact</Link></li>
                                         </ul>
-                                        <div className=" Post-Jobs">
-                                            <Link to="post_job.html" className="">
-                                                Post Jobs
-                                            </Link>
-                                        </div>
                                         <div className="hamburger menu_mm menu-vertical">
                                             <i className="large material-icons font-color-white menu_mm menu-vertical">menu</i>
                                         </div>

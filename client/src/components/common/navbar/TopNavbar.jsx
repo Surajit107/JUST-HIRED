@@ -25,8 +25,6 @@ const TopNavbar = () => {
                                         </li>
                                     </ul>
                                     <div className=" ml-auto ">
-                                        <div className="search_button search"><i
-                                            className="large material-icons search-icone">search</i></div>
                                         <div className="hamburger menu_mm  search_button transparent search display"><i
                                             className="large material-icons font-color-white  search-icone  menu_mm ">menu</i>
                                         </div>
