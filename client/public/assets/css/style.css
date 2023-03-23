@@ -584,7 +584,7 @@ button:focus {
     height: 0;
     border-right: 15px solid #6be76f;
     border-left: 15px solid #6be76f;
-    border-top: 15px solid #d95516;
+    border-top: 15px solid #64d916;
     opacity: 0;
     transition: all .5s ease 0s
 }
@@ -1077,7 +1077,7 @@ button:focus {
     font-weight: 700;
     transition: all .5s ease 0s;
     border-radius: 30px;
-    border: 1px solid rgba(242, 101, 34, 0.93);
+    border: 1px solid #6be76f;
     color: #fff;
     background-color: #6be76f;
     display: block;
@@ -1785,8 +1785,8 @@ html .ui-button.ui-state-disabled:active {
 #resent-job-post .detail .part-full-time {
     width: 148px;
     height: 38px;
-    border: 1px solid #f8b5a7;
-    color: #f26c4f;
+    border: 1px solid #22bd70;
+    color: #4dbf67;
     font-size: 16px;
     font-family: proxima nova rg;
     cursor: pointer;
@@ -1804,7 +1804,7 @@ html .ui-button.ui-state-disabled:active {
 #resent-job-post .detail .part-full-time:hover {
     border: 1px solid #fff;
     color: #fff;
-    background-color: #f26c4f;
+    background-color: #4dbf67;
     transition: all .5s ease 0s
 }
 
@@ -1909,7 +1909,7 @@ html .ui-button.ui-state-disabled:active {
     text-align: center;
     position: absolute;
     left: 35px;
-    background-color: rgba(242, 101, 34, 0.93);
+    background-color: #6be76f;
     color: #fff;
     border: 1px solid #6be76f;
     margin-top: 1.3px
