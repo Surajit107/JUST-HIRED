@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Banner from '../components/common/Banner'
 import Search from '../components/common/Search'
 import FilterJobResult from '../components/core/job/FilterJobResult'
 import JobList from '../components/core/job/JobList'
 
 const Jobs = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <>
             {/* Banner */}

@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const ContactUs = () => {
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <section id="Contact_us">
@@ -9,47 +15,47 @@ const ContactUs = () => {
 
 
       <section id="Get-in-Touch">
-        <div class="container text-center position-absolute">
-          <div class="Get-in-Touch-box">
-            <h3 class="text-left">Get in Touch</h3>
-            <div class="vertical-space-5"></div>
-            <p class="text-left">Lorem ipsum tempus amet conubia adipiscing fermentum viverra gravida sodales luctus
+        <div className="container text-center position-absolute">
+          <div className="Get-in-Touch-box">
+            <h3 className="text-left">Get in Touch</h3>
+            <div className="vertical-space-5"></div>
+            <p className="text-left">Lorem ipsum tempus amet conubia adipiscing fermentum viverra gravida sodales luctus
               nulla</p>
-            <div class="vertical-space-40"></div>
+            <div className="vertical-space-40"></div>
             <form>
-              <div class="row">
-                <div class=" col-lg-6 col-md-12">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full name" required />
-                    <span class="fa fa-user icone "></span>
+              <div className="row">
+                <div className=" col-lg-6 col-md-12">
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Full name" required />
+                    <span className="fa fa-user icone "></span>
                   </div>
                 </div>
-                <div class=" col-lg-6 col-md-12">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Subject" required />
-                    <span class="fa fa-file icone "></span>
+                <div className=" col-lg-6 col-md-12">
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Subject" required />
+                    <span className="fa fa-file icone "></span>
                   </div>
                 </div>
-                <div class=" col-lg-6 col-md-12">
-                  <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email address" required />
-                    <span class="fa fa-envelope icone "></span>
+                <div className=" col-lg-6 col-md-12">
+                  <div className="form-group">
+                    <input type="email" className="form-control" placeholder="Email address" required />
+                    <span className="fa fa-envelope icone "></span>
                   </div>
                 </div>
-                <div class=" col-lg-6 col-md-12">
-                  <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="Phone number" required />
-                    <span class="fa fa-phone icone "></span>
+                <div className=" col-lg-6 col-md-12">
+                  <div className="form-group">
+                    <input type="tel" className="form-control" placeholder="Phone number" required />
+                    <span className="fa fa-phone icone "></span>
                   </div>
                 </div>
-                <div class=" col-lg-12 col-md-12">
-                  <div class="form-group">
-                    <textarea class="form-control" placeholder="Messege" rows="3" required></textarea>
+                <div className=" col-lg-12 col-md-12">
+                  <div className="form-group">
+                    <textarea className="form-control" placeholder="Messege" rows="3" required></textarea>
                   </div>
                 </div>
               </div>
-              <button type="submit" class="Send">Send</button>
-              <button type="reset" class="button button-rounded  close">&times;</button>
+              <button type="submit" className="Send">Send</button>
+              <button type="reset" className="button button-rounded  close">&times;</button>
             </form>
           </div>
         </div>

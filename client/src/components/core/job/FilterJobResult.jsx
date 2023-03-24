@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const FilterJobResult = () => {
     return (
@@ -8,23 +7,27 @@ const FilterJobResult = () => {
                 <div className="Job-Category-box">
                     <p className="title">Job Category</p>
                     <ul>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Web Developer (54)</Link></li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">User Experience Design (21)</Link>
-                        </li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Digital Marketer (72)</Link></li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Branding and promotion (54)</Link>
-                        </li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">User Experience Design (21)</Link>
-                        </li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Digital Marketer (72)</Link></li>
+                        <li><input className='mx-2' type="checkbox" />Web Developer (54)</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />User Experience Design (21)</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />Digital Marketer (72)</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />Branding and promotion (54)</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />User Experience Design (21)</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />Digital Marketer (72)</li>
                     </ul>
                 </div>
                 <div className="Job-Nature-box">
                     <p className="title">Job Nature</p>
                     <ul>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Full Time jobs</Link></li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Part Time jobs</Link></li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Hourly</Link></li>
+                        <li><input className='mx-2' type="checkbox" />Full Time jobs</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />Part Time jobs</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />Hourly</li>
                     </ul>
                 </div>
                 <div className="Salary-Range-box">
@@ -53,9 +56,11 @@ const FilterJobResult = () => {
                 <div className="Industry-box">
                     <p className="title">Industry</p>
                     <ul>
-                        <li className="deactivate"><Link to="#!" className="font-color-black">Full Time jobs</Link></li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Part Time jobs</Link></li>
-                        <li className="list-item1 "><Link to="#!" className="font-color-black">Hourly</Link></li>
+                        <li><input className='mx-2' type="checkbox" />Full Time jobs</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />Part Time jobs</li>
+                        <br />
+                        <li><input className='mx-2' type="checkbox" />Hourly</li>
                     </ul>
                 </div>
             </div>

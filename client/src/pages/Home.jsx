@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Banner from '../components/common/Banner'
 import Search from '../components/common/Search'
 import Category from '../components/core/home/Category'
@@ -8,6 +8,11 @@ import RecentJob from '../components/core/home/RecentJob'
 import WhyUs from '../components/core/home/WhyUs'
 
 const Home = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       {/* Banner */}

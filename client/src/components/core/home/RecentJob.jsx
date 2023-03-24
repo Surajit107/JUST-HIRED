@@ -24,7 +24,7 @@ const RecentJob = () => {
                                 <i className="large material-icons">place</i>
                                 <span className="text font-size">11907 Doyle Cape Cydneyview</span>
                                 <div className="float-right margin-top text-align-center">
-                                    <Link to="#!" className="part-full-time">Part Time</Link>
+                                    <Link to="/jobdetails" className="part-full-time">Part Time</Link>
                                     <p className="date-time">Deadline: May 23, 2018</p>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ const RecentJob = () => {
                                 <i className="large material-icons">place</i>
                                 <span className="text font-size">11907 Doyle Cape Cydneyview</span>
                                 <div className="float-right margin-top text-align-center">
-                                    <Link to="#!" className="part-full-time">Full Time</Link>
+                                    <Link to="/jobdetails" className="part-full-time">Full Time</Link>
                                     <p className="date-time">Deadline: May 23, 2018</p>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@ const RecentJob = () => {
                                 <i className="large material-icons">place</i>
                                 <span className="text font-size">11907 Doyle Cape Cydneyview</span>
                                 <div className="float-right margin-top text-align-center">
-                                    <Link to="#!" className="part-full-time">Full Time</Link>
+                                    <Link to="/jobdetails" className="part-full-time">Full Time</Link>
                                     <p className="date-time">Deadline: May 23, 2018</p>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ const RecentJob = () => {
                                 <i className="large material-icons">place</i>
                                 <span className="text font-size">11907 Doyle Cape Cydneyview</span>
                                 <div className="float-right margin-top text-align-center">
-                                    <Link to="#!" className="part-full-time">Part Time</Link>
+                                    <Link to="/jobdetails" className="part-full-time">Part Time</Link>
                                     <p className="date-time">Deadline: May 23, 2018</p>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@ const RecentJob = () => {
                                 <i className="large material-icons">place</i>
                                 <span className="text font-size">11907 Doyle Cape Cydneyview</span>
                                 <div className="float-right margin-top text-align-center">
-                                    <Link to="#!" className="part-full-time">Freelance</Link>
+                                    <Link to="/jobdetails" className="part-full-time">Freelance</Link>
                                     <p className="date-time">Deadline: May 23, 2018</p>
                                 </div>
                             </div>

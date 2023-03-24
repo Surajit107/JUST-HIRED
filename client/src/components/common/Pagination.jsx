@@ -1,21 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ReactPaginate from 'react-paginate'
 
 const Pagination = () => {
+    const [pageNumber, setPageNumber] = useState(0)
+    const data = [1, 2, 3, 4, 5, 6, 7]
+    const userPerpage = 3
+    const pagesVisited = pageNumber * userPerpage
+    const list_data = data?.slice(pagesVisited, pagesVisited + userPerpage)
+    const pageCount = Math.ceil(list_data.length / userPerpage)
+
+    const changePage = (data) => {
+        setPageNumber(data.selected)
+    }
+
     return (
         <>
             <div className="job-list">
-                <ul className="pagination justify-content-end margin-auto">
-                    <li className="page-item"><Link className="page-link pdding-none" to="javascript:void(0);"><i
-                        className=" material-icons keyboard_arrow_left_right">keyboard_arrow_left</i></Link></li>
-                    <li className="page-item"><Link className="page-link active" to="javascript:void(0);">1</Link></li>
-                    <li className="page-item"><Link className="page-link" to="javascript:void(0);">2</Link></li>
-                    <li className="page-item"><Link className="page-link" to="javascript:void(0);">3</Link></li>
-                    <li className="page-item"><Link className="page-link" to="javascript:void(0);">4</Link></li>
-                    <li className="page-item">
-                        <Link className="page-link pdding-none" to="javascript:void(0);"> <i
-                            className=" material-icons keyboard_arrow_left_right">keyboard_arrow_right</i></Link>
-                    </li>
-                </ul>
+                <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    containerClassName={"pagination pagination-lg justify-content-center"}    //<ul> tag className
+                    pageClassName={"page-item"}     //<li> tag className
+                    pageLinkClassName={"page-link"}     //<a> tag className
+                    previousClassName={"page-item"}     //className for previousLabel
+                    previousLinkClassName={"page-link"}     //Link className for previousLabel
+                    nextClassName={"page-item"}     //className for nextLabel
+                    nextLinkClassName={"page-link"}     //Link className for nextLabel
+                    activeClassName={"active"}
+                />
             </div>
         </>
     )

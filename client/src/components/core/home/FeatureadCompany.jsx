@@ -15,7 +15,7 @@ const FeatureadCompany = () => {
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12">
                             <div className="owl-carousel Featuread-Company-carousel">
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-3.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -32,7 +32,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media  text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-4.png" alt="John Doe"
                                             className="margin-auto Featuread-Company-img" />
@@ -49,7 +49,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media text-align-center   media1">
                                         <img src="./assets/imags/job-post-icone-1.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -66,7 +66,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media   text-align-center media1">
                                         <img src="./assets/imags/job-post-icone-5.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -83,7 +83,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media text-align-center   media1">
                                         <img src="./assets/imags/job-post-icone-3.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -100,7 +100,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media  text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-4.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -117,7 +117,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media  text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-3.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -134,7 +134,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media  text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-4.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -151,7 +151,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media  text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-1.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -168,7 +168,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media  text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-5.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />
@@ -185,7 +185,7 @@ const FeatureadCompany = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to="#!" className="Featuread-Company-item">
+                                <Link to="/jobdetails" className="Featuread-Company-item">
                                     <div className="media  text-align-center  media1">
                                         <img src="./assets/imags/job-post-icone-3.png" alt="John Doe"
                                             className=" Featuread-Company-img margin-auto" />

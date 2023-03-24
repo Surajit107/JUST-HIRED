@@ -28,6 +28,16 @@ const Navbar = () => {
                                             <li><Link to="/jobs">Job</Link></li>
                                             <li><Link to="/blog"> Blog</Link></li>
                                             <li><Link to="/contactus">Contact</Link></li>
+                                            <li className="dropdown">
+                                                <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">User Name
+                                                    <span className="caret"></span></Link>
+                                                <ul className="dropdown-menu">
+                                                    <li><Link to="#!">Hi User Name</Link></li>
+                                                    <li><Link to="#!">Log Out</Link></li>
+                                                </ul>
+                                            </li>
+                                            <li><Link to="/signup">Sign Up</Link></li>
+                                            <li><Link to="/login">Log In</Link></li>
                                         </ul>
                                         <div className="hamburger menu_mm menu-vertical">
                                             <i className="large material-icons font-color-white menu_mm menu-vertical">menu</i>
