@@ -7,7 +7,9 @@ const JobList = () => {
             <div className="col-lg-8 col-md-12">
                 <div className="detail width-100 ">
                     <div className="media display-inline text-align-center">
-                        <img src="./assets/imags/job-post-icone-1.png" alt="John Doe" className="mr-3 " />
+                        <Link to="/jobdetails">
+                            <img src="./assets/imags/job-post-icone-1.png" alt="John Doe" className="mr-3 " />
+                        </Link>
                         <div className="media-body text-left  text-align-center">
                             <h6><Link to="/jobdetails" className="font-color-black">Jopitar looking for a senior UX Designer</Link>
                             </h6>
@@ -17,7 +19,7 @@ const JobList = () => {
                             <i className="large material-icons">place</i>
                             <span className="text font-size">11907 Doyle Cape Cydneyview</span>
                             <div className="float-right margin-top text-align-center">
-                                <Link to="/jobdetails" className="part-full-time">Part Tiatton</Link>
+                                <Link to="#!" className="part-full-time">Part Tiatton</Link>
                                 <p className="date-time">Deadline: May 23, 2018</p>
                             </div>
                         </div>

@@ -22,25 +22,11 @@ const MenuNav = () => {
                 </div>
                 <nav className="menu_nav">
                     <ul className="menu_mm">
-                        <li className="dropdown menu_mm">
-                            <Link className="dropdown-toggle" data-toggle="dropdown" to="#">Home
-                                <span className="caret"></span></Link>
-                            <ul className="dropdown-menu">
-                                <li><Link to="index.html">Home 1</Link></li>
-                                <li><Link to="index2.html">Home 2</Link></li>
-                            </ul>
-                        </li>
-                        <li className="dropdown menu_mm">
-                            <Link className="dropdown-toggle menu_mm" data-toggle="dropdown" to="#">Job
-                                <span className="caret"></span></Link>
-                            <ul className="dropdown-menu menu_mm">
-                                <li className="menu_mm"><Link to="job_category.html">Job List</Link></li>
-                                <li className="menu_mm"><Link to="job_detail.html">Job Detail</Link></li>
-                            </ul>
-                        </li>
-                        <li className="menu_mm"><Link to="blog_page.html">Blog</Link></li>
-                        <li className="menu_mm"><Link to="about_us.html">About</Link></li>
-                        <li className="menu_mm"><Link to="contact.html">Contact</Link></li>
+                        <li className="menu_mm"><Link to="/">Home</Link></li>
+                        <li className="menu_mm"><Link to="/jobs">Job</Link></li>
+                        <li className="menu_mm"><Link to="/blogs">Blog</Link></li>
+                        <li className="menu_mm"><Link to="/aboutus">About</Link></li>
+                        <li className="menu_mm"><Link to="/contactus">Contact</Link></li>
                     </ul>
                 </nav>
             </div>

@@ -2,6 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
+
+  // handelSubmit function
+  const handlesubmit = (e) => {
+    e.preventDefault()
+  }
+
+
   return (
     <>
       <footer id="footer" className="background-color-white">
@@ -24,16 +31,16 @@ const Footer = () => {
             <div className="col-lg-2 col-md-6 vertical-space-2">
               <h5>Company</h5>
               <div className="text">
-                <Link to="/about">About</Link>
-                <Link to="#!">Support</Link>
-                <Link to="#!">Tems</Link>
-                <Link to="#!">Privacy</Link>
+                <Link to="#!">Mshape Themes Limited.</Link>
+                <Link to="#!">Scalegoss Limited.</Link>
+                <Link to="#!">Supwin Themes Limited.</Link>
+                <Link to="#!">Mshape Themes Limited.</Link>
               </div>
             </div>
             <div className="col-lg-2 col-md-6 vertical-space-2">
               <h5>Supports</h5>
               <div className="text">
-                <Link to="#!">About</Link>
+                <Link to="/aboutus">About</Link>
                 <Link to="#!">Support</Link>
                 <Link to="#!">Tems</Link>
                 <Link to="#!">Privacy</Link>
@@ -43,8 +50,13 @@ const Footer = () => {
               <h5>Subscribe Us</h5>
               <p>Get latest update and newsletter</p>
               <div className="vertical-space-30"></div>
-              <form>
-                <input type="email" className="email " placeholder="Email Address " required="" />
+              <form onSubmit={handlesubmit}>
+                <input
+                  type="email"
+                  className="email "
+                  placeholder="Email Address "
+                  required
+                />
                 <span className="fa fa-envelope email-icone "></span>
                 <input type="submit" className="Subscribe" value="Subscribe" />
               </form>

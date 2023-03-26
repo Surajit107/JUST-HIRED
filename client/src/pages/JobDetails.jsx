@@ -30,7 +30,6 @@ const JobDetails = () => {
                         <h3>Exclusive Product Manager Needed</h3>
                         <Link to="#" className="Apply-Now">Apply Now</Link>
                         <h6 className="font-color-orange">Airbnx Expross Soft</h6>
-                        <Link to="#">View more similar jobs</Link>
                         <i className="material-icons">place</i>
                         <span className="text">11907 Doyle Cape Cydneyview</span>
                         <h4>Short description</h4>

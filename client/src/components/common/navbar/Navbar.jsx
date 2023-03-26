@@ -2,8 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MenuNav from './MenuNav'
 import TopNavbar from './TopNavbar'
+import { useDispatch } from 'react-redux'
+import { doLogOut } from '../../../services/slice/AuthSlice'
 
 const Navbar = () => {
+    const dispatch = useDispatch()
+
     return (
         <>
             <header className="header">
@@ -26,14 +30,20 @@ const Navbar = () => {
                                             <li><Link to="/">Home</Link></li>
                                             <li><Link to="/aboutus">About</Link></li>
                                             <li><Link to="/jobs">Job</Link></li>
-                                            <li><Link to="/blog"> Blog</Link></li>
+                                            <li><Link to="/blogs"> Blog</Link></li>
                                             <li><Link to="/contactus">Contact</Link></li>
+
+                                            {/* User Dropdown menu */}
                                             <li className="dropdown">
                                                 <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">User Name
                                                     <span className="caret"></span></Link>
                                                 <ul className="dropdown-menu">
-                                                    <li><Link to="#!">Hi User Name</Link></li>
-                                                    <li><Link to="#!">Log Out</Link></li>
+                                                    <li>
+                                                        <Link to="#!">Hi User Name</Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link to="#!" onClick={() => dispatch(doLogOut())}>Log Out</Link>
+                                                    </li>
                                                 </ul>
                                             </li>
                                             <li><Link to="/signup">Sign Up</Link></li>

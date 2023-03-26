@@ -20,15 +20,20 @@ const Blog = () => {
                     <div className="vertical-space-50"></div>
                     <div className="row">
                         <div className="col-lg-4 col-md-6">
-                            <img src="./assets/imags/blog1.jpg" className="blog-image" alt="" />
+                            <Link to='/blogdetails'>
+                                <img src="./assets/imags/blog1.jpg" className="blog-image" alt="" />
+                            </Link>
                             <div className="blog-box">
                                 <Link to="/blogdetails" className="font-color-black font-size">Page builder included</Link>
-                                <p className="float-left font-color-black width"><Link to="#!" className="font-color-black font-size-14">27
+                                <p className="float-left font-color-black width">
+                                    <Link to="#!" className="font-color-black font-size-14">27
                                     Mar, 2018</Link> | <Link to="#!" className="font-color-black font-size-14">11 min read</Link></p>
                                 <p className="space10">Fusce aliqm nonlips dictmst dapib alorem accman pellenl tesque in temor aliqm
                                     npion dmst dapib honcs fusce aliqm non dictmst . </p>
                                 <div className="vertical-space-20"></div>
-                                <Link to="/blogdetails" className="font-color-orange font-bold">Read more<i className="fa fa-long-arrow-right"></i></Link>
+                                <Link to="/blogdetails" className="font-color-orange font-bold">
+                                    Read more<i className="fa fa-long-arrow-right"></i>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
