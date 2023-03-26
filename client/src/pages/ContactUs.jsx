@@ -10,7 +10,7 @@ const ContactUs = () => {
   return (
     <>
       <section id="Contact_us">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29472.57956071659!2d88.40016442490067!3d22.576393640100406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275b020703c0d%3A0xece6f8e0fc2e1613!2sSector%20V%2C%20Bidhannagar%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1679601323577!5m2!1sen!2sin" width="100%" height="650" style={{ "border": "0" }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title='My Map'></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29472.57956071659!2d88.40016442490067!3d22.576393640100406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275b020703c0d%3A0xece6f8e0fc2e1613!2sSector%20V%2C%20Bidhannagar%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1679601323577!5m2!1sen!2sin" width="100%" height="650" style={{ "border": "0" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title='My Map'></iframe>
       </section>
 
 
