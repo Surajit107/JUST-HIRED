@@ -49,6 +49,6 @@ const router = express.Router();
 //     }
 // });
 
-router.get("/", userController.home)
+router.post("/signup", userController.userSignup)
 
 module.export = router;
