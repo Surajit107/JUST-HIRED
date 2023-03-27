@@ -21,7 +21,7 @@ root.render(
         <Route path='/signup' element={<SignUp />} />
       </Routes>
     </Router>
-    <ToastContainer style={{ "fontSize": "13px" }} transition={Bounce} position="bottom-right" autoClose={4000} theme="dark" />
+    <ToastContainer style={{ "fontSize": "13px" }} transition={Bounce} position="bottom-right" theme="dark" />
   </Provider>
 );
 

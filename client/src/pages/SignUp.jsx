@@ -21,9 +21,13 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (signupData?.password !== confPassword?.confPassword) {
-            toast.error("Password Didn't Matched")
+            toast.error("Password Didn't Matched", {
+                autoClose: 3500,
+            })
         } else {
-            toast.success("Registered Successfully.Please Login To Continue")
+            toast.success("Registered Successfully.Please Login To Continue", {
+                autoClose: 3500,
+            })
             navigate('/login')
         }
     }
@@ -54,7 +58,7 @@ const SignUp = () => {
                                             <span className="fa fa-user icone "></span>
                                         </div>
                                     </div>
-                                    <div className=" col-md-10">
+                                    <div className=" col-md-5">
                                         <div className="form-group">
                                             <input
                                                 type="email"
@@ -68,6 +72,22 @@ const SignUp = () => {
                                                 required
                                             />
                                             <span className="fa fa-envelope icone "></span>
+                                        </div>
+                                    </div>
+                                    <div className=" col-md-5">
+                                        <div className="form-group">
+                                            <input
+                                                type="tel"
+                                                className="form-control"
+                                                placeholder="Phone number"
+                                                pattern="[0-9]{10}"
+                                                title="Accept Phone Number Only"
+                                                name='email'
+                                                value={signupData?.email}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                            <span className="fa fa-phone icone "></span>
                                         </div>
                                     </div>
                                     <div className=" col-md-5">

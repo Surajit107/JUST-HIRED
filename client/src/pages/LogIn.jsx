@@ -19,7 +19,9 @@ const LogIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         // console.log(loginData);
-        toast.success("Login Successfully")
+        toast.success("Login Successfully", {
+            autoClose: 3500,
+        })
         navigate('/')
     }
 
@@ -29,7 +31,7 @@ const LogIn = () => {
             <section id="Get-in-Touch">
                 <div className="container text-center position-absolute" style={{ "marginTop": "100px" }}>
                     <div className="Get-in-Touch-box card card-3">
-                        <h3 className="d-flex justify-content-center">Log In</h3>
+                        <h3 className="d-flex justify-content-center">LOGIN</h3>
                         <div className="row d-flex justify-content-center">
                             <div className="vertical-space-5"></div>
                             <div className="vertical-space-40"></div>

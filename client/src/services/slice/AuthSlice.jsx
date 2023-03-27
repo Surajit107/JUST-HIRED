@@ -10,7 +10,9 @@ const AuthSlice = createSlice({
     },
     reducers: {
         doLogOut(state, { payload }) {
-            toast.success("You Have Successfully Logged Out!")
+            toast.success("You Have Successfully Logged Out!", {
+                autoClose: 3500,
+            })
         }
     }
 })
