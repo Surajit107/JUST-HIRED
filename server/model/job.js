@@ -38,8 +38,11 @@ const jobSchema = new Schema({
         type:Number,
         require: [true, "This field is required!"],
     },
-
-});
+    company_id:{
+        type:Schema.types.ObjectId,
+        ref:"company",
+    }
+}, {timestamps: true});
 
 const jobModel = mongoose.model("job", jobSchema);
 
