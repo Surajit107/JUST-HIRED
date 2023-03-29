@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux'
+import { signupReq } from '../services/slice/AuthSlice';
 
 const SignUp = () => {
     const [signupData, setSignupData] = useState({
         full_name: "",
         email: "",
+        phone: "",
         password: ""
     })
     const [confPassword, setConfPassword] = useState({ confPassword: "" })
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
 
     // handleChance function
@@ -25,9 +29,7 @@ const SignUp = () => {
                 autoClose: 3500,
             })
         } else {
-            toast.success("Registered Successfully.Please Login To Continue", {
-                autoClose: 3500,
-            })
+            dispatch(signupReq({ signupData, toast }))
             navigate('/login')
         }
     }
@@ -44,6 +46,8 @@ const SignUp = () => {
                             <div className="vertical-space-40"></div>
                             <form onSubmit={handleSubmit}>
                                 <div className="row" style={{ "marginLeft": "100px" }}>
+
+                                    {/* Full Name */}
                                     <div className=" col-md-10">
                                         <div className="form-group">
                                             <input
@@ -53,43 +57,52 @@ const SignUp = () => {
                                                 name='full_name'
                                                 value={signupData?.full_name}
                                                 onChange={handleChange}
+                                                pattern='^[a-zA-Z ]+$'
+                                                title="Accept Alphabets & Whitespaces Only"
                                                 required
                                             />
                                             <span className="fa fa-user icone "></span>
                                         </div>
                                     </div>
+
+                                    {/* Email */}
                                     <div className=" col-md-5">
                                         <div className="form-group">
                                             <input
                                                 type="email"
                                                 className="form-control"
                                                 placeholder="Email address"
-                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                                title="Accept Email Format Only"
                                                 name='email'
                                                 value={signupData?.email}
                                                 onChange={handleChange}
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$"
+                                                title="Accept Email Format Only"
                                                 required
                                             />
                                             <span className="fa fa-envelope icone "></span>
                                         </div>
                                     </div>
+
+                                    {/* Phone */}
                                     <div className=" col-md-5">
                                         <div className="form-group">
                                             <input
                                                 type="tel"
                                                 className="form-control"
                                                 placeholder="Phone number"
+                                                name='phone'
+                                                value={signupData?.phone}
+                                                onChange={handleChange}
                                                 pattern="[0-9]{10}"
                                                 title="Accept Phone Number Only"
-                                                name='email'
-                                                value={signupData?.email}
-                                                onChange={handleChange}
+                                                maxLength={10}
                                                 required
                                             />
                                             <span className="fa fa-phone icone "></span>
                                         </div>
                                     </div>
+
+                                    {/* Password */}
                                     <div className=" col-md-5">
                                         <div className="form-group">
                                             <input
@@ -99,11 +112,15 @@ const SignUp = () => {
                                                 name='password'
                                                 value={signupData?.password}
                                                 onChange={handleChange}
+                                                pattern='[a-zA-Z0-9]{8,16}$'
+                                                title="Password Should Be Alphanumeric Without Space"
                                                 required
                                             />
                                             <span className="fa fa-lock icone "></span>
                                         </div>
                                     </div>
+
+                                    {/* Confirm Password */}
                                     <div className=" col-md-5">
                                         <div className="form-group">
                                             <input
@@ -119,6 +136,8 @@ const SignUp = () => {
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* SignUp Button */}
                                 <button type="submit" className="btn btn-outline-primary" style={{ "width": "120px" }}><i className="fa-solid fa-address-card mx-1"></i>Sign Up</button>
                                 <Link to="/" type="reset" className="button button-rounded"><i className="fa-solid fa-house mt-3 text-secondary"></i></Link>
                             </form>
