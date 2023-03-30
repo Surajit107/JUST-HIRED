@@ -40,10 +40,18 @@ const userModel = mongoose.model("user", userSchema);
 
 const validateUser =(user)=>{
     const schema = joi.object({
-        name: joi.string().min(3).max(40).required(),
-        email:joi.string().email().required(),
-        phone:joi.number().min(10).required(),
-        password:joi.string().min(8).max(16).alphanum().required(),
+        name: joi.string().min(3).max(40).required().pattern(/^[a-zA-Z ]+$/).messages({
+            "string.empty":"*Name is Required!!!",
+        }),
+        email:joi.string().email().required().messages({
+            "string.empty":"*Name is Required!!!",
+        }),
+        phone:joi.number().min(10).required().messages({
+            "string.empty":"*Name is Required!!!",
+        }),
+        password:joi.string().min(8).max(16).alphanum().required().messages({
+            "string.empty":"*Name is Required!!!",
+        }),
     })
     return schema.validate(user);
 }
