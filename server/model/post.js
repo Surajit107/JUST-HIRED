@@ -3,44 +3,50 @@ const joi = require("joi");
 
 const Schema = mongoose.Schema;
 const postSchema = new Schema({
-    title:{
-        type:String,
-        require: [true, "Title is required!"],
+    title: {
+        type: String,
+        require: true,
     },
-    sub_title:{
-        type:String,
-        require: [true, "Sub-title is required!"],
+    sub_title: {
+        type: String,
+        require: true,
     },
-    post_img:{
-        type:String,
-        require: [true, "Image is required!"],
+    post_img: {
+        type: String,
+        require: true,
     },
-    flag:{
-        type:Boolean,
+    flag: {
+        type: Boolean,
         default: false,
     },
-    user:{
-        type:Schema.types.ObjectId,
-        ref:"user"
+    user: {
+        type: Schema.types.ObjectId,
+        ref: "user"
     },
-    category_id:{
-        type:Schema.types.ObjectId,
-        ref:"jobcategory",
+    category_id: {
+        type: Schema.types.ObjectId,
+        ref: "jobcategory",
     },
-}, {timestamps: true});
+}, { timestamps: true });
 
 const postModel = mongoose.model("post", postSchema);
 
-const validatePosts = (post)=>{
+const validatePosts = (post) => {
     const schema = joi.object({
-        title:joi.string().required(),
-        sub_title:joi.string().required(),
-        post_img:joi.string().required(),
+        title: joi.string().required().messages({
+            "string.empty": "*Title is Required!!!"
+        }),
+        sub_title: joi.string().required().messages({
+            "string.empty": "*Subtitle is Required!!!"
+        }),
+        post_img: joi.string().required().messages({
+            "string.empty": "*Image is Required!!!"
+        }),
     })
     return schema.validate(post)
 }
 
-module.exports ={
+module.exports = {
     postModel,
     validatePosts
 }

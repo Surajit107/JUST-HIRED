@@ -4,59 +4,77 @@ const Schema = mongoose.Schema;
 const jobSchema = new Schema({
     title: {
         type: String,
-        requrie: [true, "Title is required!"],
+        requrie: true,
     },
     company_name: {
         type: String,
-        require: [true, "Company name is required!"],
+        require: true,
     },
     company_logo: {
         type: String,
-        require: [true, "Company logo is required!"],
+        require: true,
     },
     short_desp: {
         type: String,
-        require: [true, "This field is required!"],
+        require: true,
     },
     full_desp: {
         type: Array,
-        require: [true, "This field is required!"],
+        require: true,
     },
-    experience:{
+    experience: {
         type: String,
-        require: [true, "This field is required!"],
+        require: true,
     },
-    requirement:{
+    requirement: {
         type: Array,
-        require: [true, "This field is required!"],
+        require: true,
     },
-    job_nature:{
+    job_nature: {
         type: String,
-        require: [true, "This field is required!"],
+        require: true,
     },
-    salary_range:{
-        type:Number,
-        require: [true, "This field is required!"],
+    salary_range: {
+        type: Number,
+        require: true,
     },
-    company_id:{
-        type:Schema.types.ObjectId,
-        ref:"company",
+    company_id: {
+        type: Schema.types.ObjectId,
+        ref: "company",
     }
-}, {timestamps: true});
+}, { timestamps: true });
 
 const jobModel = mongoose.model("job", jobSchema);
 
-const validateJobField =(job)=>{
+const validateJobField = (job) => {
     const schema = joi.object({
-        title: joi.string().max(40).required(),
-        company_name:joi.string().max(40).required(),
-        company_logo:joi.string().required(),
-        short_desp:joi.string().required(),
-        full_desp:joi.string().required(),
-        experience:joi.string().required(),
-        requirement:joi.string().required(),
-        job_nature:joi.string().required(),
-        salary_range:joi.number().required(),
+        title: joi.string().max(40).required().messages({
+            "string.empty": "*Title is Required!!!"
+        }),
+        company_name: joi.string().max(40).required().messages({
+            "string.empty": "*Company Name is Required!!!"
+        }),
+        company_logo: joi.string().required().messages({
+            "string.empty": "*Company Logo is Required!!!"
+        }),
+        short_desp: joi.string().required().messages({
+            "string.empty": "*Short Description is Required!!!"
+        }),
+        full_desp: joi.string().required().messages({
+            "string.empty": "*Full Description is Required!!!"
+        }),
+        experience: joi.string().required().messages({
+            "string.empty": "*Choose An Experience Level!!!"
+        }),
+        requirement: joi.string().required().messages({
+            "string.empty": "*Requirement is Required!!!"
+        }),
+        job_nature: joi.string().required().messages({
+            "string.empty": "*Select One Job Nature!!!"
+        }),
+        salary_range: joi.number().required().messages({
+            "string.empty": "*Mention Salary Range!!!"
+        }),
     })
     return schema.validate(job);
 }
