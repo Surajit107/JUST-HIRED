@@ -25,6 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+const userAuthJwt = require("./middleware/userAuthJwt");
+app.use(userAuthJwt.authJwtSession)
 const userRouter = require("./route/userRoute");
 app.use("/api/user", userRouter);
 

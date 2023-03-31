@@ -11,9 +11,9 @@ const securePassword = async (password) => {
 }
 
 // CreateToken
-const createToken = async (id) => {
-    const token = await jwt.sign({ _id: id }, config.secret_key, { expiresIn: "5h" })
-    console.log(token);
+const createToken = async (user) => {
+    const token = await jwt.sign({ id : user._id, full_name: user.full_name, email: user.email }, config.secret_key, { expiresIn: "5h" })
+    // console.log(token);
     return token;
 }
 
@@ -32,7 +32,7 @@ const userSignup = async (req, res) => {
         })
         const save_user = await user.save();
         // console.log("Save Uer =>", save_user);
-        return res.status(200).json({ success: true, message: "Registered Successfully", data: save_user, "token": token })
+        return res.status(200).json({ success: true, message: "Registered Successfully", data: save_user })
     } catch (exc) {
         return res.status(400).json({ error: true, message: exc });
     }
@@ -40,20 +40,17 @@ const userSignup = async (req, res) => {
 
 // userSignin
 const userSignin = async (req, res) => {
+    console.log("userSignin=>", req.body);
+    const { email, password } = req.body
     try {
-        const { email, password } = req.body
-        if (!(email && password)) {
-            console.log("error");
-            return res.status(400).json({ status: false, message: "All Inputs Are Required" })
-        }
-        const existingUser = await userModel.findOne({ email })
-        if (existingUser && (bcryptjs.compareSync(password, existingUser.password))) {
-            const token = await createToken(existingUser._id)
-            return res.status(200).json({ success: true, message: "Login Successfully", "user": existingUser, "token": token })
+        const user = await userModel.findOne({ email });
+        if (user && (bcryptjs.compareSync(password, user.password))) {
+            const token = await createToken(user);
+            res.cookie("userToken", token)
+            return res.status(200).json({ success: true, message: "Logged In Successfully", "user": user, "token": token })
         } else {
             return res.status(404).json({ success: false, message: "Invalid Credentials" });
         }
-
     } catch (err) {
         return res.status(400).json(err.message)
     }
