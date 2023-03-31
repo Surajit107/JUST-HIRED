@@ -3,13 +3,14 @@ import { toast } from 'react-toastify';
 import { LOGIN, SIGNUP } from "../api/Api";
 
 // SignUp 
-export const signupReq = createAsyncThunk("/signup-api-end-point", async ({ signupData, toast }, { rejectWithValue }) => {
+export const signupReq = createAsyncThunk("/signup", async ({ signupData, toast, navigate }, { rejectWithValue }) => {
     try {
         const res = await SIGNUP(signupData)
         console.log(res?.data);
         toast.success("Registered Successfully.Please Login To Continue", {
             autoClose: 3500,
         })
+        navigate('/login')
         return res?.data
     } catch (err) {
         // console.log(rejectWithValue(err.response.data));
@@ -19,13 +20,14 @@ export const signupReq = createAsyncThunk("/signup-api-end-point", async ({ sign
 
 
 // LogIn
-export const loginReq = createAsyncThunk("/login-api-end-point", async ({ loginData, toast }, { rejectWithValue }) => {
+export const loginReq = createAsyncThunk("/login", async ({ loginData, toast, navigate }, { rejectWithValue }) => {
     try {
         const res = await LOGIN(loginData)
         console.log(res?.data);
         toast.success("Login Successfully", {
             autoClose: 3500,
         })
+        navigate('/')
         return res?.data
     } catch (err) {
         // console.log(rejectWithValue(err.response.data));

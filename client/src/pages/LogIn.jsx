@@ -21,8 +21,7 @@ const LogIn = () => {
     // handleSubmit function
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(loginReq({ loginData, toast }))
-        navigate('/')
+        dispatch(loginReq({ loginData, toast, navigate }))
     }
 
 

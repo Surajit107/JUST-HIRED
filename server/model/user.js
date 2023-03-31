@@ -40,7 +40,7 @@ const userModel = mongoose.model("user", userSchema);
 
 const validateUser = (user) => {
     const schema = joi.object({
-        name: joi.string().min(3).required().pattern(/^[a-zA-Z ]+$/).messages({
+        full_name: joi.string().min(3).required().pattern(/^[a-zA-Z ]+$/).messages({
             "string.empty": "*Name is Required!!!",
             "string.min": "*Name Should Be Atleast 3 Characters Long!!!",
             "string.pattern.base": "*Alphabets & Blank Spaces Only!!!",

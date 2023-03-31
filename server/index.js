@@ -1,4 +1,4 @@
-const express =require("express");
+const express = require("express");
 const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
@@ -20,7 +20,7 @@ const app = express();
 // app.use(cookieParser());
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -28,6 +28,10 @@ app.set("views", "views");
 const userRouter = require("./route/userRoute");
 app.use("/api/user", userRouter);
 
-mongoose.connect(process.env.DB_CONN, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(res => app.listen(process.env.PORT, () => console.log(`Server Running at http://localhost:${process.env.PORT}`)))
+const db_connection = "mongodb+srv://chalder8250:h8bVVtgQ5O9ITqWR@cluster0.ggg6h1m.mongodb.net/mern_job_portal"
+const port = 4402
+// console.log(process.env.DB_CONNECTION);
+
+mongoose.connect(db_connection, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(res => app.listen(port || 4402, () => console.log(`Server Running at http://localhost:${port}`)), console.log("......Database Connected......"))
     .catch(err => console.log(err))
