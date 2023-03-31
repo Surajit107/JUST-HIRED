@@ -8,16 +8,16 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-// app.use(express.static(path.join(__dirname, "public")))
-// app.use(session({
-//     cookie:{maxAge: 50000},
-//     secret: "chandan_surajit",
-//     resave: false,
-//     saveUninitialized: false,
-// }));
+app.use(express.static(path.join(__dirname, "public")))
+app.use(session({
+    cookie:{maxAge: 50000},
+    secret: "chandan_surajit",
+    resave: false,
+    saveUninitialized: false,
+}));
 
-// app.use(flash());
-// app.use(cookieParser());
+app.use(flash());
+app.use(cookieParser());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -54,7 +54,6 @@ const FileUpload = multer({
 
 // user Routes
 // sign up
-router.post("/signup", userController.userSignup)
-// router.post("/signup", ImageUpload.single("image"), [userAuth(validateUser)], userController.userSignup)
+router.post("/signup", ImageUpload.single("image"), [userAuth(validateUser), verifySignup.checkDuplicateEntries], userController.userSignup)
 
 module.exports = router;

@@ -47,6 +47,7 @@ const validateUser = (user) => {
         }),
         email: joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'in'] } }).required().messages({
             "string.empty": "*Email is Required!!!",
+            "string.email":"*Invalid Email Format!!!"
         }),
         phone: joi.number().min(10).required().messages({
             "string.empty": "*Phone is Required!!!",
