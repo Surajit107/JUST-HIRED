@@ -49,9 +49,10 @@ const validateUser = (user) => {
             "string.empty": "Email is Required!!!",
             "string.email":"Invalid Email Format!!!"
         }),
-        phone: joi.string().min(10).required().messages({
+        phone: joi.string().min(10).max(10).required().messages({
             "string.empty": "Phone is Required!!!",
             "string.min": "Phone Number should be of 10 Digits",
+            "string.max": "Phone Number should be of 10 Digits",
         }),
         password: joi.string().min(8).max(16).required().messages({
             "string.empty": "Password is Required!!!",
