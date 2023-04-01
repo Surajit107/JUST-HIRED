@@ -26,12 +26,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+app.use(cors())
+
 const userAuthJwt = require("./middleware/userAuthJwt");
 app.use(userAuthJwt.authJwtSession)
 const userRouter = require("./route/userRoute");
 app.use("/api/user", userRouter);
 
-app.use(cors)
 
 // const db_connection = "mongodb+srv://chalder8250:h8bVVtgQ5O9ITqWR@cluster0.ggg6h1m.mongodb.net/mern_job_portal"
 // const port = 4402
