@@ -13,14 +13,14 @@ export const signupReq = createAsyncThunk("/signup", async ({ signupData, toast,
         navigate('/login')
         return res?.data
     } catch (err) {
-        // console.log(rejectWithValue(err.response.data));
+        console.log(rejectWithValue(err.response.data));
         return rejectWithValue(err.response.data)
     }
 })
 
 
 // LogIn
-export const loginReq = createAsyncThunk("/login", async ({ loginData, toast, navigate }, { rejectWithValue }) => {
+export const loginReq = createAsyncThunk("/signin", async ({ loginData, toast, navigate }, { rejectWithValue }) => {
     try {
         const res = await LOGIN(loginData)
         console.log(res?.data);
@@ -30,7 +30,7 @@ export const loginReq = createAsyncThunk("/login", async ({ loginData, toast, na
         navigate('/')
         return res?.data
     } catch (err) {
-        // console.log(rejectWithValue(err.response.data));
+        console.log(rejectWithValue(err.response.data));
         return rejectWithValue(err.response.data)
     }
 })

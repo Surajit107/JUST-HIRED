@@ -9,9 +9,9 @@ const SignUp = () => {
         full_name: "",
         email: "",
         phone: "",
-        password: "",
-        confPassword: ""
+        password: ""
     })
+    const [confPassword, setConfPassword] = useState({ confPassword: "" })
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -24,7 +24,7 @@ const SignUp = () => {
     // handleSubmit function
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (signupData?.password !== signupData?.confPassword) {
+        if (signupData?.password !== confPassword?.confPassword) {
             toast.error("Password Didn't Matched", {
                 autoClose: 3500,
             })
@@ -127,8 +127,8 @@ const SignUp = () => {
                                                 className="form-control"
                                                 placeholder="Confirm Password"
                                                 name='confPassword'
-                                                value={signupData?.confPassword}
-                                                onChange={handleChange}
+                                                value={confPassword?.confPassword}
+                                                onChange={(e) => setConfPassword({ ...confPassword, [e.target.name]: e.target.value })}
                                                 required
                                             />
                                             <span className="fa fa-key icone "></span>
