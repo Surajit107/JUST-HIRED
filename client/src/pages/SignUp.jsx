@@ -92,9 +92,9 @@ const SignUp = () => {
                                                 name='phone'
                                                 value={signupData?.phone}
                                                 onChange={handleChange}
-                                                pattern="[0-9]{10}"
-                                                title="Accept Phone Number Only"
                                                 maxLength={10}
+                                                pattern="[0-9]{10}"
+                                                title="Accept Phone 10 Digits Number Only"
                                                 required
                                             />
                                             <span className="fa fa-phone icone "></span>
@@ -112,7 +112,7 @@ const SignUp = () => {
                                                 value={signupData?.password}
                                                 onChange={handleChange}
                                                 pattern='[a-zA-Z0-9]{8,16}$'
-                                                title="Password Should Be Alphanumeric Without Space"
+                                                title="Password Should Be Alphanumeric Without Blank Spaces With Minimum 8 Characters"
                                                 required
                                             />
                                             <span className="fa fa-lock icone "></span>
