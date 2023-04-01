@@ -20,6 +20,4 @@ exports.checkDuplicateEntries = async (req, res, next) => {
     }catch(exc){
         return res.status(404).json({ error: true, msg: exc })
     }
-
-    
 }

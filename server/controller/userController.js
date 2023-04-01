@@ -40,16 +40,20 @@ const userSignup = async (req, res) => {
 
 // userSignin
 const userSignin = async (req, res) => {
-    console.log("userSignin=>", req.body);
+    // console.log("userSignin=>", req.body);
     const { email, password } = req.body
     try {
-        const user = await userModel.findOne({ email });
-        if (user && (bcryptjs.compareSync(password, user.password))) {
-            const token = await createToken(user);
-            res.cookie("userToken", token)
-            return res.status(200).json({ success: true, message: "Logged In Successfully", "user": user, "token": token })
-        } else {
-            return res.status(404).json({ success: false, message: "Invalid Credentials" });
+        if(email && password){
+            const user = await userModel.findOne({ email });
+            if (user && (bcryptjs.compareSync(password, user.password))) {
+                const token = await createToken(user);
+                res.cookie("userToken", token)
+                return res.status(200).json({ success: true, message: "Logged In Successfully", "user": user, "token": token })
+            } else {
+                return res.status(404).json({ success: false, message: "Invalid Credentials" });
+            }
+        }else{
+            return res.status(404).json({ success: false, message: "All Fields are Required!!!" });
         }
     } catch (err) {
         return res.status(400).json(err.message)
