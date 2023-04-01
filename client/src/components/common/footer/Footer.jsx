@@ -67,7 +67,14 @@ const Footer = () => {
         <div className="container-fluid background-color-orange main-footer">
           <div className="container text-center">
             <div className="vertical-space-30"></div>
-            <p>&#169; 2024 Just Hired || All Rights Reserved</p>
+            <p>Copyright &#169; 2024 Just Hired™ || All Rights Reserved</p>
+            <p style={{
+              "marginTop": "0px",
+              "fontSize": "10px",
+              "color": "white",
+              "letterSpacing": "6px",
+              "fontFamily":"roboto"
+            }}>Developed By Chandan Halder & Surajit Pal</p>
           </div>
         </div>
       </footer>

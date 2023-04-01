@@ -70,6 +70,10 @@ const AuthSlice = createSlice({
             state.message = "Failed"
             state.loading = false
             state.error = payload
+            // console.log(payload?.message);
+            toast.error(payload?.message, {
+                autoClose: 3500,
+            })
         })
 
         // States For loginReq
@@ -90,7 +94,7 @@ const AuthSlice = createSlice({
             state.loading = false
             state.error = payload
             // console.log(payload?.message);
-            toast.error(payload?.message + " !!", {
+            toast.error(payload?.message, {
                 autoClose: 3500,
             })
         })
