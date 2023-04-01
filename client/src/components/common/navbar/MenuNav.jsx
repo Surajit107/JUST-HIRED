@@ -1,7 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { doLogOut } from '../../../services/slice/AuthSlice'
 
 const MenuNav = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const user = JSON.parse(window.localStorage.getItem("user"))
+    const token = JSON.parse(window.localStorage.getItem("token"))
+
+    // logOut func
+    const logOut = () => {
+        dispatch(doLogOut())
+        navigate('/')
+    }
+
     return (
         <>
             <div className="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
@@ -27,6 +40,29 @@ const MenuNav = () => {
                         <li className="menu_mm"><Link to="/blogs">Blog</Link></li>
                         <li className="menu_mm"><Link to="/aboutus">About</Link></li>
                         <li className="menu_mm"><Link to="/contactus">Contact</Link></li>
+
+                        {/* User Dropdown menu */}
+                        {
+                            token ?
+                                <li className="dropdown">
+                                    <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">{user?.full_name}
+                                        <span className="caret"></span></Link>
+                                    <ul className="dropdown-menu">
+                                        <li className='ml-4'>
+                                            <Link to="/" onClick={logOut}>Log Out</Link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                : null
+                        }
+                        {/* Signup */}
+                        {
+                            !token ? <li><Link to="/signup">Sign Up</Link></li> : null
+                        }
+                        {/* Login */}
+                        {
+                            !token ? <li><Link to="/login">Log In</Link></li> : null
+                        }
                     </ul>
                 </nav>
             </div>

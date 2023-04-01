@@ -6,14 +6,14 @@ import { LOGIN, SIGNUP } from "../api/Api";
 export const signupReq = createAsyncThunk("/signup", async ({ signupData, toast, navigate }, { rejectWithValue }) => {
     try {
         const res = await SIGNUP(signupData)
-        console.log(res?.data);
-        toast.success("Registered Successfully.Please Login To Continue", {
-            autoClose: 3500,
+        // console.log(res?.data);
+        toast.success(`${res?.data?.message}.\nPlease Login To Continue`, {
+            autoClose: 4000,
         })
         navigate('/login')
         return res?.data
     } catch (err) {
-        console.log(rejectWithValue(err.response.data));
+        // console.log(rejectWithValue(err.response.data));
         return rejectWithValue(err.response.data)
     }
 })
@@ -23,14 +23,14 @@ export const signupReq = createAsyncThunk("/signup", async ({ signupData, toast,
 export const loginReq = createAsyncThunk("/signin", async ({ loginData, toast, navigate }, { rejectWithValue }) => {
     try {
         const res = await LOGIN(loginData)
-        console.log(res?.data);
-        toast.success("Login Successfully", {
+        // console.log(res?.data);
+        toast.success(res?.data?.message, {
             autoClose: 3500,
         })
         navigate('/')
         return res?.data
     } catch (err) {
-        console.log(rejectWithValue(err.response.data));
+        // console.log(rejectWithValue(err.response.data));
         return rejectWithValue(err.response.data)
     }
 })
@@ -48,6 +48,8 @@ const AuthSlice = createSlice({
     reducers: {
         doLogOut(state) {
             state.login_data = []
+            window.localStorage.removeItem("user")
+            window.localStorage.removeItem("token")
             toast.success("You Have Successfully Logged Out!", {
                 autoClose: 3500,
             })
@@ -79,11 +81,18 @@ const AuthSlice = createSlice({
             state.message = "Success"
             state.loading = false
             state.login_data = payload
+            // console.log("login-payload=>", payload);
+            window.localStorage.setItem("user", JSON.stringify(payload?.user))
+            window.localStorage.setItem("token", JSON.stringify(payload?.token))
         })
         builder.addCase(loginReq.rejected, (state, { payload }) => {
             state.message = "Failed"
             state.loading = false
             state.error = payload
+            // console.log(payload?.message);
+            toast.error(payload?.message + " !!", {
+                autoClose: 3500,
+            })
         })
     }
 })

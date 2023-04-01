@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import MenuNav from './MenuNav'
 import TopNavbar from './TopNavbar'
 import { useDispatch } from 'react-redux'
@@ -7,6 +7,15 @@ import { doLogOut } from '../../../services/slice/AuthSlice'
 
 const Navbar = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const user = JSON.parse(window.localStorage.getItem("user"))
+    const token = JSON.parse(window.localStorage.getItem("token"))
+
+    // logOut func
+    const logOut = () => {
+        dispatch(doLogOut())
+        navigate('/')
+    }
 
     return (
         <>
@@ -34,20 +43,27 @@ const Navbar = () => {
                                             <li><Link to="/contactus">Contact</Link></li>
 
                                             {/* User Dropdown menu */}
-                                            <li className="dropdown">
-                                                <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">User Name
-                                                    <span className="caret"></span></Link>
-                                                <ul className="dropdown-menu">
-                                                    <li>
-                                                        <Link to="#!">Hi User Name</Link>
+                                            {
+                                                token ?
+                                                    <li className="dropdown">
+                                                        <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">{user?.full_name}
+                                                            <span className="caret"></span></Link>
+                                                        <ul className="dropdown-menu">
+                                                            <li>
+                                                                <Link to="/" onClick={logOut}>Log Out</Link>
+                                                            </li>
+                                                        </ul>
                                                     </li>
-                                                    <li>
-                                                        <Link to="#!" onClick={() => dispatch(doLogOut())}>Log Out</Link>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><Link to="/signup">Sign Up</Link></li>
-                                            <li><Link to="/login">Log In</Link></li>
+                                                    : null
+                                            }
+                                            {/* Signup */}
+                                            {
+                                                !token ? <li><Link to="/signup">Sign Up</Link></li> : null
+                                            }
+                                            {/* Signin */}
+                                            {
+                                                !token ? <li><Link to="/login">Log In</Link></li> : null
+                                            }
                                         </ul>
                                         <div className="hamburger menu_mm menu-vertical">
                                             <i className="large material-icons font-color-white menu_mm menu-vertical">menu</i>
