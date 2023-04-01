@@ -20,11 +20,11 @@ const postSchema = new Schema({
         default: false,
     },
     user: {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "user"
     },
     category_id: {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "jobcategory",
     },
 }, { timestamps: true });
@@ -34,13 +34,13 @@ const postModel = mongoose.model("post", postSchema);
 const validatePosts = (post) => {
     const schema = joi.object({
         title: joi.string().required().messages({
-            "string.empty": "*Title is Required!!!"
+            "string.empty": "Title is Required"
         }),
         sub_title: joi.string().required().messages({
-            "string.empty": "*Subtitle is Required!!!"
+            "string.empty": "Subtitle is Required"
         }),
         post_img: joi.string().required().messages({
-            "string.empty": "*Image is Required!!!"
+            "string.empty": "Image is Required"
         }),
     })
     return schema.validate(post)

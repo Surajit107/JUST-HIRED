@@ -39,7 +39,7 @@ const jobSchema = new Schema({
         require: true,
     },
     company_id: {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "company",
     }
 }, { timestamps: true });

@@ -4,7 +4,7 @@ const joi = require("joi")
 const Schema = mongoose.Schema;
 const commentSchema = new Schema({
     post: {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "post"
     },
     comment: {

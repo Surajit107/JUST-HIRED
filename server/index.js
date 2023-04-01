@@ -10,6 +10,7 @@ const cors = require('cors')
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")))
+
 app.use(session({
     cookie: { maxAge: 50000 },
     secret: "chandan_surajit",
@@ -30,12 +31,14 @@ app.use(cors())
 
 const userAuthJwt = require("./middleware/userAuthJwt");
 app.use(userAuthJwt.authJwtSession)
+
+// User Route
 const userRouter = require("./route/userRoute");
 app.use("/api/user", userRouter);
 
-
-// const db_connection = "mongodb+srv://chalder8250:h8bVVtgQ5O9ITqWR@cluster0.ggg6h1m.mongodb.net/mern_job_portal"
-// const port = 4402
+// Blog Route
+const blogRouter = require("./route/blogRoute");
+app.use("/api/blogs", blogRouter);
 
 require('dotenv').config()
 
