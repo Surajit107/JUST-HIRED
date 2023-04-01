@@ -60,10 +60,19 @@ const userSignin = async (req, res) => {
     }
 }
 
+// contact us
+const contactUs = async (req, res)=>{
+    try{
+
+    }catch(exc){
+
+    }
+}
 
 module.exports = {
     securePassword,
     createToken,
     userSignup,
-    userSignin
+    userSignin,
+    contactUs
 }

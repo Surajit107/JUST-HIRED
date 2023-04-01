@@ -41,22 +41,22 @@ const userModel = mongoose.model("user", userSchema);
 const validateUser = (user) => {
     const schema = joi.object({
         full_name: joi.string().min(3).required().pattern(/^[a-zA-Z ]+$/).messages({
-            "string.empty": "*Name is Required!!!",
-            "string.min": "*Name Should Be Atleast 3 Characters Long!!!",
-            "string.pattern.base": "*Alphabets & Blank Spaces Only!!!",
+            "string.empty": "Name is Required!!!",
+            "string.min": "Name Should Be Atleast 3 Characters Long!!!",
+            "string.pattern.base": "Alphabets & Blank Spaces Only!!!",
         }),
         email: joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'in'] } }).required().messages({
-            "string.empty": "*Email is Required!!!",
-            "string.email":"*Invalid Email Format!!!"
+            "string.empty": "Email is Required!!!",
+            "string.email":"Invalid Email Format!!!"
         }),
-        phone: joi.number().min(10).required().messages({
-            "string.empty": "*Phone is Required!!!",
-            "string.min": "*Phone Number Should Be 10 Digits Long",
+        phone: joi.string().min(10).required().messages({
+            "string.empty": "Phone is Required!!!",
+            "string.min": "Phone Number should be of 10 Digits",
         }),
         password: joi.string().min(8).max(16).required().messages({
-            "string.empty": "*Password is Required!!!",
-            "string.min": "*Password Should Be 8 Characters Long!!!",
-            "string.max": "*Password Should Not Exceed 16 Characters!!!",
+            "string.empty": "Password is Required!!!",
+            "string.min": "Password Should Be 8 Characters Long!!!",
+            "string.max": "Password Should Not Exceed 16 Characters!!!",
         }),
     })
     return schema.validate(user);

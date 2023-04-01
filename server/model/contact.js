@@ -29,12 +29,24 @@ const contactModel = mongoose.model("contact", contactSchema);
 
 const validateContacts = (contact) => {
     const schema = joi.object({
-        name: joi.string().required(),
-        email: joi.email({ minDomainSegments: 2, tlds: { allow: ['com', 'in'] } })
-            .required(),
-        phone: joi.number().required(),
-        subject: joi.string().required(),
-        message:joi.string().required(),
+        name: joi.string().required().messages({
+            "string.empty": "Name is Required!!!",
+        }),
+        email: joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'in'] } }).required().messages({
+            "string.empty": "Email is Required!!!",
+            "string.email": "Invalid Email Format!!!",
+        }),
+        phone: joi.string().min(10).max(10).required().messages({
+            "string.empty": "Phone is Required!!!",
+            "string.min": "Phone should be of 10 Digits!!!",
+            "string.max": "Phone should be of 10 Digits!!!",
+        }),
+        subject: joi.string().required().messages({
+            "string.empty": "Subject Can not be Empty!!!",
+        }),
+        message:joi.string().required().messages({
+            "string.empty": "Message Can not be Empty!!!",
+        }),
     })
     return schema.validate(contact)
 }

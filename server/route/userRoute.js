@@ -3,6 +3,7 @@ const path = require("path");
 const multer = require("multer");
 const userController = require("../controller/userController");
 const { validateUser } = require("../model/user");
+const { validateContacts } = require("../model/contact");
 const userAuth = require("../middleware/userAuth")
 const verifySignup = require("../middleware/verifySignup")
 
@@ -58,5 +59,8 @@ router.post("/signup", ImageUpload.single("image"), [userAuth(validateUser), ver
 
 // sign in
 router.post("/signin",  userController.userSignin)
+
+// contact us
+router.post("/contactus", [userAuth(validateContacts)], userController.contactUs)
 
 module.exports = router;
