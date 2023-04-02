@@ -29,6 +29,13 @@ app.set("views", "views");
 
 app.use(cors())
 
+// Admin Auth
+
+// Admin Route
+const adminRoute = require("./route/adminRoute");
+app.use("/api/admin", adminRoute);
+
+// user Auth
 const userAuthJwt = require("./middleware/userAuthJwt");
 app.use(userAuthJwt.authJwtSession)
 

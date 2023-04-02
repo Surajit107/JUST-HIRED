@@ -3,13 +3,30 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const jobCategorySchema = new Schema({
     category_name:{
-        types:String,
+        type:String,
         require:true,
     },
     category_logo:{
-        types:String,
+        type:String,
         require:true,
     },
 }, {timestamps:true});
 
-module.export = mongoose.model("jobcategory", jobCategorySchema);
+const jobCategoryModel = mongoose.model("jobcategory", jobCategorySchema);
+
+const validateJobCategory = (jobcategory)=>{
+    const schema = joi.object({
+        category_name : joi.string().required().messages({
+            "string.empty": "Category Name is Required",
+        }),
+        category_logo : joi.string().required().messages({
+            "string.empty": "Logo is Required",
+        }),
+    })
+    return schema.validate(jobcategory);
+}
+
+module.exports = {
+    jobCategoryModel,
+    validateJobCategory,
+}
