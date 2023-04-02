@@ -45,7 +45,13 @@ const MenuNav = () => {
                         {
                             token ?
                                 <li className="dropdown">
-                                    <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">{user?.full_name}
+                                    <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        {
+                                            user?.displayName ?
+                                                user?.displayName
+                                                :
+                                                user?.full_name
+                                        }
                                         <span className="caret"></span></Link>
                                     <ul className="dropdown-menu">
                                         <li className='ml-4'>

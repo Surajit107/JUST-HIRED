@@ -46,7 +46,13 @@ const Navbar = () => {
                                             {
                                                 token ?
                                                     <li className="dropdown">
-                                                        <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">{user?.full_name}
+                                                        <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            {
+                                                                user?.displayName ?
+                                                                    user?.displayName
+                                                                    :
+                                                                    user?.full_name
+                                                            }
                                                             <span className="caret"></span></Link>
                                                         <ul className="dropdown-menu">
                                                             <li>
@@ -64,6 +70,7 @@ const Navbar = () => {
                                             {
                                                 !token ? <li><Link to="/login">Log In</Link></li> : null
                                             }
+
                                         </ul>
                                         <div className="hamburger menu_mm menu-vertical">
                                             <i className="large material-icons font-color-white menu_mm menu-vertical">menu</i>
