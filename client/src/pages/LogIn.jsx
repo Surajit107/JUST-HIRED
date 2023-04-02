@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { loginReq } from '../services/slice/AuthSlice'
+import { auth, google } from '../config/firebase'
+import { signInWithPopup } from 'firebase/auth'
 
 const LogIn = () => {
     const [loginData, setLogindata] = useState({
@@ -22,6 +24,18 @@ const LogIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(loginReq({ loginData, toast, navigate }))
+    }
+
+    // socailLogin function
+    const socialLogin = async (provider) => {
+        const result = await signInWithPopup(auth, provider)
+        window.localStorage.setItem("user", JSON.stringify(result?.user))
+        window.localStorage.setItem("token", JSON.stringify(result?.user?.accessToken))
+        navigate('/')
+        toast.success('Loged In Successfully', {
+            autoClose: 3500
+        })
+        // console.log(result);
     }
 
 
@@ -92,7 +106,7 @@ const LogIn = () => {
                         <div style={{ "marginLeft": "65px" }}>
                             <h5 className='text-center' style={{ "fontSize": "16px" }}>Sign In With Google
                                 <span>
-                                    <button className='btn rounded-circle bg-transparent'>
+                                    <button onClick={() => socialLogin(google)} className='btn rounded-circle bg-transparent'>
                                         <i className="fa-brands fa-google" style={{ "color": "#ff0000" }}></i>
                                     </button>
                                 </span>
