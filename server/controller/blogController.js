@@ -26,10 +26,10 @@ exports.addPost = async (req, res)=>{
             if(savePost){
                 return res.status(200).json({success: true, message: "Posts Added Successfully", data: savePost});
             }else{
-                return res.status(200).json({success: false, message: "Somthing Went Wrong. Try Again"})
+                return res.status(400).json({success: false, message: "Somthing Went Wrong. Try Again"})
             }
         }else{
-            return res.status(200).json({success: false, message: "All Fields are Required"})
+            return res.status(400).json({success: false, message: "All Fields are Required"})
         }
     }catch(exc){
         return res.status(400).json({error: true, message: exc})

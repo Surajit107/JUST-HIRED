@@ -6,7 +6,7 @@ const jobCategorySchema = new Schema({
         type: String,
         require: true,
     },
-    image: {
+    category_logo: {
         type: String,
         require: true,
     },
@@ -19,7 +19,7 @@ const validateJobCategory = (jobcategory) => {
         category_name: joi.string().required().messages({
             "string.empty": "Category Name is Required",
         }),
-        image: joi.string().required().messages({
+        category_logo: joi.string().required().messages({
             "string.empty": "Logo is Required",
         }),
     })

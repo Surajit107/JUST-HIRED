@@ -11,6 +11,6 @@ const router = express.Router();
 router.get("/alljobcategory", adminController.getJobCategory);
 
 // add job category
-router.post("/addjobcategory", ImageUpload.single("image"), [modelAuth(jobCategoryModel)], adminController.addJobCategory);
+router.post("/addjobcategory", ImageUpload.single("category_logo"), [modelAuth(jobCategoryModel)], adminController.addJobCategory);
 
 module.exports = router;
