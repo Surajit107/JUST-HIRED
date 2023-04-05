@@ -6,12 +6,21 @@ import FeatureadCompany from '../components/core/home/FeatureadCompany'
 import JobGet from '../components/core/home/JobGet'
 import RecentJob from '../components/core/home/RecentJob'
 import WhyUs from '../components/core/home/WhyUs'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCategory } from '../services/slice/JobAndCategorySlice'
 
 const Home = () => {
 
+  const dispatch = useDispatch()
+  const { category_data } = useSelector(state => state.jobAndCategorySlice)
+
+
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+    dispatch(getCategory())
+  }, [dispatch])
+
+
 
   return (
     <>
@@ -22,7 +31,7 @@ const Home = () => {
       <Search />
 
       {/* Job Category */}
-      <Category />
+      <Category category_data={category_data} />
 
       {/* Recent Job */}
       <RecentJob />
