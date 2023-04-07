@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Category = ({ category_data }) => {
-    
-    console.log(category_data);
-    
+
+    const hostUrl = process.env.REACT_APP_HOST
+
     return (
         <>
             <section id="Job-Category">
@@ -22,7 +22,7 @@ const Category = ({ category_data }) => {
                                     <div className="col-lg-3 col-md-6 max-width-50" key={item?._id}>
                                         <div className="box background-color-white-light">
                                             <div className="circle">
-                                                <img src={`./assets/imags/icone/${item?.category_logo}`} alt="" />
+                                                <img src={hostUrl + item?.category_logo} alt="" />
                                             </div>
                                             <h6>{item?.category_name}</h6>
                                             <Link to="#!" className="button job_post" data-hover="View Jobs" data-active="I'M ACTIVE"><span>36 Job
