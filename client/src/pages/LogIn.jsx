@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -37,6 +37,10 @@ const LogIn = () => {
         })
         // console.log(result);
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     return (
