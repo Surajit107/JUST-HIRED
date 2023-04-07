@@ -15,6 +15,10 @@ const postSchema = new Schema({
         type: String,
         require: true,
     },
+    content: {
+        type: String,
+        require: true,
+    },
     flag: {
         type: Boolean,
         default: false,
@@ -41,6 +45,9 @@ const validatePosts = (post) => {
         }),
         post_img: joi.string().required().messages({
             "string.empty": "Image is Required"
+        }),
+        content: joi.string().required().messages({
+            "string.empty": "Content can't be Empty"
         }),
     })
     return schema.validate(post)
