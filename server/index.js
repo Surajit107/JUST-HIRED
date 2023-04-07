@@ -9,7 +9,8 @@ const cors = require('cors')
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public")))
+// app.use("/public", express.static(path.join(__dirname, "./public", "uploads")))
+app.use("/public", express.static("public"))
 
 app.use(session({
     cookie: { maxAge: 50000 },

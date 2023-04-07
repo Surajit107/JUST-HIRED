@@ -5,10 +5,7 @@ exports.getJobCategory = async (req, res) => {
     try {
         const allCategory = await jobCategoryModel.find();
 
-        // const url = req.protocol + "://" + req.get("host")
-        // console.log(url);
-
-        if (allCategory) {
+        if (allCategory.length) {
             return res.status(200).json({ success: true, message: "Job Category Fetched Successfully", data: allCategory });
         } else {
             return res.status(400).json({ success: false, message: "No Records Found" });
@@ -24,8 +21,7 @@ exports.addJobCategory = async (req, res) => {
         if (category_name && req.file.filename) {
             const newCategory = await jobCategoryModel({
                 category_name,
-                category_logo: req.file.filename
-                // category_logo: "/public/uploads/" + req.file.filename
+                category_logo: "/public/uploads/"+req.file.filename,
             });
             const saveCategory = await newCategory.save();
             if (saveCategory) {
