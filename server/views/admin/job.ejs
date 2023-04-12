@@ -1,0 +1,128 @@
+<%-include('./common/head')%>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <!-- Sidebar -->
+    <%-include('./common/sidebar')%>
+
+      <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <div class="container">
+          <div class="sign-up-form">
+            <br>
+            <h1 style="font-family: LobsterTwo-Regular;">Post Your Job</h1>
+
+            <form action="/addpost" method="POST" style="font-family: LobsterTwo-Regular; font-size: 1.5rem;"
+              enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Job Title</label><br>
+                <input type="text" class="form-control" name="title" id="exampleInputEmail1"
+                  aria-describedby="emailHelp" placeholder="Enter Job Title" style="font-size: 1.2rem;" required>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Company Name</label><br>
+                <input type="text" class="form-control" name="subtitle" id="exampleInputPassword1"
+                  placeholder="Enter Company Name" style="font-size: 1.2rem;" required>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Short Description</label><br>
+                <textarea name="content" placeholder="Enter Short Description" required></textarea>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1">Full Desciption</label><br>
+                  <div class="d-flex justify-content-between">
+                    <input type="text" class="form-control" name="subtitle" id="exampleInputPassword1"
+                      placeholder="Enter Full Description" style="font-size: 1.2rem;" required>
+                    <button class="btn btn-danger ml-2"><i class="fa-solid fa-plus"
+                        style="color: #ffffff;"></i></button>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1">Requirement</label><br>
+                  <div class="d-flex justify-content-between">
+                    <input type="text" class="form-control" name="subtitle" id="exampleInputPassword1"
+                      placeholder="Requirement is Required" style="font-size: 1.2rem;" required>
+                    <button class="btn btn-danger ml-2"><i class="fa-solid fa-plus"
+                        style="color: #ffffff;"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1">Choose An Experience Level</label><br>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+                    <label class="form-check-label fs-5" for="flexRadioDefault1">
+                      Fresher
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked required>
+                    <label class="form-check-label fs-5" for="flexRadioDefault2">
+                      Experienced
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1">Job Nature</label><br>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+                    <label class="form-check-label fs-5" for="flexRadioDefault1">
+                      Part Time
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked required>
+                    <label class="form-check-label fs-5" for="flexRadioDefault2">
+                      Full Time
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="exampleInputPassword1">Minimum Salary</label><br>
+                  <input type="text" class="form-control" name="subtitle" id="exampleInputPassword1"
+                    placeholder="Enter Post Sub Title" style="font-size: 1.2rem;" pattern="[0-9]+"
+                    title="Enter Positive Number Only" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="exampleInputPassword1">Maximum Salary</label><br>
+                  <input type="text" class="form-control" name="subtitle" id="exampleInputPassword1"
+                    placeholder="Enter Post Sub Title" style="font-size: 1.2rem;" pattern="[0-9]+"
+                    title="Enter Positive Number Only" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="">Company Logo</label><br>
+                  <input type="file" class="form-control" name="image" id="exampleInputPassword1" required>
+                </div>
+
+              </div>
+
+
+              <p>
+                <button type="submit" class="btn btn-primary btn-lg btn-block mb-4"
+                  style="font-size: 1.2rem; width: 100px">Upload</button>
+            </form>
+          </div>
+        </div>
+
+
+        <!-- <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script> -->
+        <script>
+          CKEDITOR.replace('content');
+        </script>
+      </div>
+  </div>
+
+
+  <%-include('./common/footer')%>

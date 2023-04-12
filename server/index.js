@@ -33,7 +33,7 @@ app.use(cors())
 // Admin Auth
 
 // Admin Route
-const adminRoute = require("./route/adminRoute");
+const adminRoute = require("./routes/adminRoute");
 app.use("/api/admin", adminRoute);
 
 // user Auth
@@ -41,11 +41,11 @@ const userAuthJwt = require("./middleware/userAuthJwt");
 app.use(userAuthJwt.authJwtSession)
 
 // User Route
-const userRouter = require("./route/userRoute");
+const userRouter = require("./routes/userRoute");
 app.use("/api/user", userRouter);
 
 // Blog Route
-const blogRouter = require("./route/blogRoute");
+const blogRouter = require("./routes/blogRoute");
 app.use("/api/blogs", blogRouter);
 
 require('dotenv').config()
