@@ -5,18 +5,18 @@ const BlogDetails = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
 
     return (
         <>
             <section id="intro">
                 <div className="carousel-item active">
-                    <div className="carousel-background"><img src="./assets/imags/slider/slider1.jpg" alt="" /></div>
+                    <div className="carousel-background"><img src="./assets/imags/slider/banner4.jpg" alt="" /></div>
                     <div className="carousel-container">
                         <div className="carousel-content">
                             <h2 className="font-color-white">Blog Details</h2>
-                            <p className="font-color-white width-100"><Link to="index.html" className="font-color-white">Home /</Link><a
-                                href="Job_Category-2.html" className="font-color-white"> Blog </a>/ Details
+                            <p className="font-color-white width-100"><Link to="/" className="font-color-white">Home /</Link><a
+                                href="/blogs" className="font-color-white"> Blog </a>/ Details
                             </p>
                         </div>
                     </div>
@@ -38,7 +38,7 @@ const BlogDetails = () => {
                             pretium massa gravida senectus donec scelerisque cursus sit, sapien quam eros euismod volutpat
                             commodo convallis interdum, habitant leo himenaeos dictumst lorem taciti quisque.</p>
                     </div>
-                    <img src="./assets/imags/job-detail.jpg" alt="" className="job-detail-img" />
+                    <img src="./assets/imags/blog1.jpg" alt="" className="blog-detail-img" />
                     <div className="Job-Description">
                         <h4>Job Description / Responsibility</h4>
                         <ul>

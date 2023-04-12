@@ -9,13 +9,14 @@ const AboutUs = () => {
 
     return (
         <>
+            {/* Banner section */}
             <section id="intro">
                 <div className="carousel-item active">
-                    <div className="carousel-background"><img src="./assets/imags/slider/slider1.jpg" alt="" /></div>
+                    <div className="carousel-background"><img src="./assets/imags/slider/banner1.jpg" alt="" /></div>
                     <div className="carousel-container">
                         <div className="carousel-content text-left">
                             <div className="container">
-                                <h2 className="font-color-white">About Jobtend</h2>
+                                <h2 className="font-color-white">About Just-Hired</h2>
                                 <p className="font-color-white margin">Lovistiq pue velit phasellus sed auctor leo eros luctus nibh
                                     fermentum, ad imperdiet rhoncus dolorhabitant purus velit aliquet dolorhabitant purus velit
                                     aliquet donecurna ut in turpis donecurna ut in turpis</p>

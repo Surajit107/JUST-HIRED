@@ -2972,6 +2972,12 @@ html .ui-button.ui-state-disabled:active {
     font-weight: 700
 }
 
+#job-Details .job-Details .blog-detail-img {
+    width: 100%;
+    object-fit: cover;
+    height: 70vh;
+}
+
 #Best-Place-to-Find-Jobs {
     padding: 98px 0;
     position: relative

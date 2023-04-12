@@ -9,9 +9,10 @@ const JobDetails = () => {
 
     return (
         <>
+            {/* Banner section */}
             <section id="intro">
                 <div className="carousel-item active">
-                    <div className="carousel-background"><img src="./assets/imags/slider/slider1.jpg" alt="" /></div>
+                    <div className="carousel-background"><img src="./assets/imags/slider/banner2.jpg" alt="" /></div>
                     <div className="carousel-container">
                         <div className="carousel-content">
                             <h2 className="font-color-white">Job Result</h2>
