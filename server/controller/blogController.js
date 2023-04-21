@@ -7,7 +7,7 @@ exports.allPost = async (req, res) => {
         const allpost = await postModel.find({ flag: true }).populate([{ path: "user", select: ["full_name", "email", "phone", "user_img", "user_status"] }, { path: "jobcategory" }]);
 
         if (allpost.length) {
-            const comment = await Comment.find({ flag: false });
+            const comment = await Comment.find({ flag: true });
             if (comment.length) {
                 return res.status(200).json({ success: true, message: "Posts Fetched Successfully", data: { "posts": allpost, "comments": comment } })
             }
