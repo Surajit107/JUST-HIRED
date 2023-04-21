@@ -19,7 +19,7 @@ const pdfMaxSize = 3 * 1024 * 1024;
 const ImageUpload = multer({
     storage: storage,
     fileFilter: (req, file, cb) => {
-        console.log("file in meadia config=>", file);
+        // console.log("file in meadia config=>", file);
         if (file.mimetype === "image/png" || file.mimetype === "image/jpg" || file.mimetype === "image/jpeg") {
             cb(null, true);
         } else {

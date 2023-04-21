@@ -12,7 +12,7 @@ const router = express.Router();
 
 // user Routes
 // sign up
-router.post("/signup", ImageUpload.single("image"), [modelAuth(validateUser), verifySignup.checkDuplicateEntries], userController.userSignup)
+router.post("/signup", ImageUpload.single("user_img"), [modelAuth(validateUser), verifySignup.checkDuplicateEntries], userController.userSignup)
 
 // sign in
 router.post("/signin",  userController.userSignin)

@@ -8,13 +8,16 @@ const createToken = require("../config/createToken");
 exports.userSignup = async (req, res) => {
     // console.log("userSignup=>", req.body);
     const { full_name, email, phone, password } = req.body;
-    const set_password = await securePassword(password)
+    const set_password = await securePassword(password);
+    const img = req.file ? "/public/uploads/" + req.file.filename : "";
+
     try {
         // console.log("entry try =>");
         const user = userModel({
             full_name,
             email,
             phone,
+            user_img: img,
             password: set_password
         })
         const save_user = await user.save();

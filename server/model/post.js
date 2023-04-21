@@ -38,16 +38,16 @@ const postModel = mongoose.model("post", postSchema);
 const validatePosts = (post) => {
     const schema = joi.object({
         title: joi.string().required().messages({
-            "string.empty": "Title is Required"
+            "string.empty": "Title is Required",
         }),
         sub_title: joi.string().required().messages({
-            "string.empty": "Subtitle is Required"
+            "string.empty": "Subtitle is Required",
         }),
         post_img: joi.string().required().messages({
-            "string.empty": "Image is Required"
+            "string.empty": "Image is Required",
         }),
         content: joi.string().required().messages({
-            "string.empty": "Content can't be Empty"
+            "string.empty": "Content can't be Empty",
         }),
     })
     return schema.validate(post)
