@@ -9,6 +9,7 @@ import Blog from './pages/Blog';
 import Jobs from './pages/Jobs';
 import JobDetails from './pages/JobDetails';
 import BlogDetails from './pages/BlogDetails';
+import ApplyNowForm from './pages/ApplyNowForm';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         <Route path='/jobdetails' element={<JobDetails />} />
         <Route path='/blogs' element={<Blog />} />
         <Route path='/blogdetails' element={<BlogDetails />} />
+        <Route path='/blogdetails/:blog_id' element={<BlogDetails />} />
         <Route path='/contactus' element={<ContactUs />} />
+        <Route path='/apply' element={<ApplyNowForm />} />
       </Routes>
       <Footer />
     </div>
