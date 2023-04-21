@@ -27,7 +27,7 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "user"
     },
-    category_id: {
+    jobcategory: {
         type: Schema.Types.ObjectId,
         ref: "jobcategory",
     },
@@ -43,11 +43,17 @@ const validatePosts = (post) => {
         sub_title: joi.string().required().messages({
             "string.empty": "Subtitle is Required",
         }),
-        post_img: joi.string().required().messages({
+        post_img: joi.string().messages({
             "string.empty": "Image is Required",
         }),
         content: joi.string().required().messages({
             "string.empty": "Content can't be Empty",
+        }),
+        user: joi.string().required().messages({
+            "string.empty": "User can't be Empty",
+        }),
+        jobcategory: joi.string().required().messages({
+            "string.empty": "jobcategory can't be Empty",
         }),
     })
     return schema.validate(post)

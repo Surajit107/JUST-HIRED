@@ -8,9 +8,12 @@ const { ImageUpload } = require("../config/mediaConfig");
 const router = express.Router();
 
 // all posts
-router.get("/allpost", blogController.allPost)
+router.get("/allpost", blogController.allPost);
 
 // add posts
-router.post("/addpost", ImageUpload.single("post_img"), [modelAuth(validatePosts)], blogController.addPost)
+router.post("/addpost", ImageUpload.single("post_img"), [modelAuth(validatePosts)], blogController.addPost);
+
+// add comment
+router.post("/addcomment", blogController.addComment);
 
 module.exports = router;

@@ -21,7 +21,7 @@ const commentSchema = new Schema({
     },
     flag: {
         type: Boolean,
-        default: false
+        default: true
     }
 }, { timestamps: true });
 

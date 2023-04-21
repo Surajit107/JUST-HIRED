@@ -54,9 +54,9 @@ const validateJobField = (job) => {
         company_name: joi.string().max(40).required().messages({
             "string.empty": "*Company Name is Required!!!"
         }),
-        company_logo: joi.string().required().messages({
-            "string.empty": "*Company Logo is Required!!!"
-        }),
+        // company_logo: joi.string().required().messages({
+        //     "string.empty": "*Company Logo is Required!!!"
+        // }),
         short_desp: joi.string().required().messages({
             "string.empty": "*Short Description is Required!!!"
         }),
