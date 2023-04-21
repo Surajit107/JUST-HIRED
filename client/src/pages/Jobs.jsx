@@ -6,6 +6,8 @@ import JobList from '../components/core/job/JobList'
 
 const Jobs = () => {
 
+    const banner_img_src = "./assets/imags/slider/banner3.jpg"
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -13,7 +15,7 @@ const Jobs = () => {
     return (
         <>
             {/* Banner */}
-            <Banner />
+            <Banner banner_img_src={banner_img_src} />
 
             {/* Search */}
             <Search />

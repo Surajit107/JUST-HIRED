@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCategory } from '../services/slice/JobAndCategorySlice'
 
 const Home = () => {
+  const banner_img_src = "./assets/imags/slider/slider1.jpg"
 
   const dispatch = useDispatch()
   const { category_data } = useSelector(state => state.jobAndCategorySlice)
@@ -25,13 +26,13 @@ const Home = () => {
   return (
     <>
       {/* Banner */}
-      <Banner />
+      <Banner banner_img_src={banner_img_src} />
 
       {/* Search */}
-      <Search />
+      < Search />
 
       {/* Job Category */}
-      <Category category_data={category_data} />
+      < Category category_data={category_data} />
 
       {/* Recent Job */}
       <RecentJob />

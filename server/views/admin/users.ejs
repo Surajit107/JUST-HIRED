@@ -1,0 +1,78 @@
+<%-include('./common/head')%>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <!-- Sidebar -->
+    <%-include('./common/sidebar')%>
+
+      <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <% if (message.length> 0) { %>
+          <div class="alert alert-danger">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>
+              <%= message %>
+            </strong>
+          </div>
+          <% } %>
+            <h2 class="mb-4">Users</h2>
+            <h4>
+              Welcome .... <%=data.name%>
+            </h4>
+
+            <!-- Table data -->
+            <div>
+              <table class="table">
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Image</th>
+                    <th colspan="2" scope="col">Action</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%if(users.length> 0){%>
+                    <%for(user of users){%>
+                      <tr class="text-center">
+                        <th scope="row"><%-users.indexOf(user)+1%></th>
+                        <td>
+                          <%=user.name%>
+                        </td>
+                        <td>
+                          <%=user.email%>
+                        </td>
+                        <td><%-user.role%></td>
+                        <td><img style="width: auto; height: 100px;" class="img-responsive"
+                            src="/uploads/<%=user.image%>" alt="image"></td>
+                        <td>
+                          <%if(user.flag){%>
+                            <a href="/admin/activeuser/<%-user._id%>" class="btn btn-success m-2">Active</a>
+                          <%}else{%>
+                              <a href="/admin/deactiveuser/<%-user._id%>" class="btn btn-danger m-2">Deactive</a>
+                          <%}%>
+                        </td>
+                        <td colspan="2">
+                          <%if(!user.flag){%>
+                            <p class="text-success" style="font-weight: bold; font-size: 18px;">Active</p>
+                          <%}else{%>
+                              <p class="text-danger" style="font-weight: bold; font-size: 18px;">Deactive</p>
+                          <%}%>
+                        </td>
+                      </tr>
+                      <%}%>
+                        <%}else{%>
+                          <tr>
+                            <td colspan="7" class="text-center fs-1">No Posts Found !!</td>
+                          </tr>
+                          <%}%>
+                </tbody>
+              </table>
+            </div>
+      </div>
+  </div>
+
+
+  <%-include('./common/footer')%>

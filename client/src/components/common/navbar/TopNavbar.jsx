@@ -53,14 +53,14 @@ const TopNavbar = () => {
                                         <li style={{ "display": !toggle ? "inline-block" : "none" }}>
                                             <div id="google_translate_element"></div>
                                         </li>
-                                        <li style={{ "display": toggle ? "inline" : "none" }}>
+                                        <li style={{ display: toggle ? "inline" : "none" }}>
                                             <Link onClick={() => setToggle(false)} to="#!">
-                                                <i className="fa-solid fa-language" style={{ "color": "#ffffff" }}></i>
+                                                <i className="fa-solid fa-language" style={{ color: "#ffffff", fontSize: "18px" }}></i>
                                             </Link>
                                         </li>
                                         <li style={{ "display": toggle ? "none" : "inline" }}>
                                             <Link onClick={() => setToggle(true)} to="#!">
-                                                <i className="fa-solid fa-xmark" style={{ "color": "#ffffff" }}></i>
+                                                <i className="fa-solid fa-xmark" style={{ color: "#ffffff", fontSize: "18px" }}></i>
                                             </Link>
                                         </li>
                                     </ul>
