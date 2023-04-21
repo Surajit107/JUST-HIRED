@@ -6,12 +6,19 @@ exports.allPost = async (req, res) => {
     try {
         const allpost = await postModel.find({ flag: true }).populate([{ path: "user", select: ["full_name", "email", "phone", "user_img", "user_status"] }, { path: "jobcategory" }]);
 
+        const allComment = await Comment.find();
+
         if (allpost.length) {
-            const comment = await Comment.find({ flag: true });
-            if (comment.length) {
-                return res.status(200).json({ success: true, message: "Posts Fetched Successfully", data: { "posts": allpost, "comments": comment } })
-            }
-            return res.status(200).json({ success: true, message: "Posts Fetched Successfully", data: { "posts": allpost } })
+            const posts = allpost.map(post => {
+                const comments = allComment.filter(comment => comment.post.toString() === post._doc._id.toString())
+
+                return {
+                    ...post._doc,
+                    comments: comments
+                }
+            })
+
+            return res.status(200).json({ success: true, message: "Posts Fetched Successfully", data: posts })
         } else {
             return res.status(404).json({ success: false, message: "No Posts Found" })
         }
