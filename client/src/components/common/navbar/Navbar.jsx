@@ -31,7 +31,7 @@ const Navbar = () => {
                                 <div className="header_content d-flex flex-row align-items-center justify-content-start">
                                     <div className="logo_container">
                                         <Link to="/">
-                                            <img src="./assets/imags/logo.png" className="logo-text" alt="" />
+                                            <img src="./assets/imags/logo2.png" className="logo-text" alt="" />
                                         </Link>
                                     </div>
                                     <nav className="main_nav_contaner ml-auto">
