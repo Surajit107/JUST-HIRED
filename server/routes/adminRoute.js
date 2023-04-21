@@ -1,6 +1,5 @@
 const express = require("express");
 const adminController = require("../controller/adminController");
-const adminViewsController = require("../controller/adminViewsController");
 const { ImageUpload } = require("../config/mediaConfig");
 const modelAuth = require("../middleware/modelAuth");
 const { jobCategoryModel } = require("../model/jobCategory");
@@ -9,11 +8,11 @@ const { jobCategoryModel } = require("../model/jobCategory");
 const router = express.Router();
 
 //admin Views route
-router.get("/dashboard", adminViewsController.adminDashboard)
-router.get("/about", adminViewsController.addAboutView)
-router.get("/job", adminViewsController.postJobView)
-router.get("/blog", adminViewsController.addBlogView)
-router.get("/category", adminViewsController.addCategoryView)
+router.get("/dashboard", adminController.adminDashboard)
+router.get("/about", adminController.addAboutView)
+router.get("/job", adminController.postJobView)
+router.get("/blog", adminController.addBlogView)
+router.get("/category", adminController.addCategoryView)
 
 // all job category route
 router.get("/alljobcategory", adminController.getJobCategory);
