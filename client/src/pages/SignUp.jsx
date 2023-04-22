@@ -9,7 +9,8 @@ const SignUp = () => {
         full_name: "",
         email: "",
         phone: "",
-        password: ""
+        password: "",
+        // user_img: ""
     })
     const [confPassword, setConfPassword] = useState({ confPassword: "" })
     const navigate = useNavigate()
@@ -29,7 +30,17 @@ const SignUp = () => {
                 autoClose: 3500,
             })
         } else {
-            dispatch(signupReq({ signupData, toast, navigate }))
+            // console.log(user_img);
+            // return;
+            const formData = new FormData();
+            formData.append('full_name', signupData?.full_name);
+            // formData.append('user_img', signupData?.user_img?.split("\\")[2]);
+            formData.append('user_img', signupData?.user_img);
+            formData.append('email', signupData?.email);
+            formData.append('phone', signupData?.phone);
+            formData.append('password', signupData?.password);
+            // console.log(formData);
+            dispatch(signupReq({ formData, toast, navigate }))
         }
     }
 
@@ -50,7 +61,7 @@ const SignUp = () => {
                                 <div className="row" style={{ "marginLeft": "100px" }}>
 
                                     {/* Full Name */}
-                                    <div className=" col-md-10">
+                                    <div className=" col-md-5">
                                         <div className="form-group">
                                             <input
                                                 type="text"
@@ -64,6 +75,22 @@ const SignUp = () => {
                                                 required
                                             />
                                             <span className="fa fa-user icone "></span>
+                                        </div>
+                                    </div>
+
+                                    {/* User Img */}
+                                    <div className=" col-md-5">
+                                        <div className="form-group">
+                                            <input
+                                                type="file"
+                                                id="file"
+                                                name='user_img'
+                                                value={signupData?.user_img}
+                                                onChange={handleChange}
+                                            />
+                                            <label style={{ width: "100%" }} htmlFor="file" className="btn-2">Upload Your Picture
+                                                <i className="fa-solid fa-arrow-up-from-bracket mx-2" style={{ color: "#ffffff" }}></i>
+                                            </label>
                                         </div>
                                     </div>
 

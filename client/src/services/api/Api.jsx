@@ -15,4 +15,4 @@ export const GETCATEGORY = () => API.get("/admin/alljobcategory")
 export const FETCHBLOGS = () => API.get("/blogs/allpost")
 
 // add comment API
-export const ADDCOMMENT = (commentData) => API.post("/blogs/addcomment")
+export const ADDCOMMENT = (commentData) => API.post("/blogs/addcomment", commentData)

@@ -6,7 +6,8 @@ const createToken = require("../config/createToken");
 
 // userSignUp
 exports.userSignup = async (req, res) => {
-    // console.log("userSignup=>", req.body);
+    // console.log("userSignup=>", req.file);
+    // return;
     const { full_name, email, phone, password } = req.body;
     const set_password = await securePassword(password);
     const img = req.file ? "/public/uploads/" + req.file.filename : "";

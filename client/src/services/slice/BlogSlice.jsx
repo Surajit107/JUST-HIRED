@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { FETCHBLOGS } from "../api/Api";
-import axios from "axios";
+import { ADDCOMMENT, FETCHBLOGS } from "../api/Api";
 
 // fetch blog
 export const fetchBlogs = createAsyncThunk("/allpost", async (payload, { rejectWithValue }) => {
@@ -16,18 +15,11 @@ export const fetchBlogs = createAsyncThunk("/allpost", async (payload, { rejectW
 
 // add cooment
 export const addComment = createAsyncThunk("/addcomment", async (commentData, { rejectWithValue }) => {
-    var config = {
-        method: 'post',
-        url: 'http://localhost:4402/api/blogs/addcomment',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        data: commentData
-    }
     try {
-        const res = await axios(config)
+        const res = await ADDCOMMENT(commentData)
+        // console.log("calling");
         // console.log(res?.data);
-        return res?.data?.data;
+        return res?.data
     } catch (err) {
         // console.log(rejectWithValue(err));
         return rejectWithValue(err)
@@ -43,10 +35,14 @@ const BlogSlice = createSlice({
         message: "",
         blog_data: [],
         blog_error: null,
-        comment_data: [],
+        comment_data: null,
         comment_error: null
     },
-    reducers: {},
+    reducers: {
+        clearCommentData(state) {
+            state.comment_data = null
+        }
+    },
     extraReducers: (builder) => {
         // states for getCategory
         builder.addCase(fetchBlogs.pending, (state) => {
@@ -57,6 +53,7 @@ const BlogSlice = createSlice({
             state.loading = false
             state.message = "Success"
             state.blog_data = payload
+            // window.localStorage.removeItem("blog_data")
             window.localStorage.setItem("blog_data", JSON.stringify(payload))
             // console.log("blog slice=>", state.blog_data);
         })
@@ -75,8 +72,8 @@ const BlogSlice = createSlice({
         builder.addCase(addComment.fulfilled, (state, { payload }) => {
             state.loading = false
             state.message = "Success"
-            state.comment_data = payload
-            // console.log("blog slice=>", payload);
+            state.comment_data = payload?.success
+            // console.log("blog slice=>", payload?.success);
         })
         builder.addCase(addComment.rejected, (state, { payload }) => {
             state.loading = false
@@ -87,4 +84,5 @@ const BlogSlice = createSlice({
     }
 })
 
+export const { clearCommentData } = BlogSlice.actions
 export default BlogSlice.reducer
