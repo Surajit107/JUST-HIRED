@@ -19,7 +19,7 @@ const validateJobCategory = (jobcategory) => {
         category_name: joi.string().required().messages({
             "string.empty": "Category Name is Required",
         }),
-        category_logo: joi.string().required().messages({
+        category_logo: joi.string().messages({
             "string.empty": "Logo is Required",
         }),
     })

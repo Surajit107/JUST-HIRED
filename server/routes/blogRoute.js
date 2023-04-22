@@ -1,5 +1,6 @@
 const express = require("express");
 const {validatePosts} = require("../model/post");
+const {validateComments} = require("../model/comment");
 const modelAuth = require("../middleware/modelAuth");
 const blogController = require("../controller/blogController");
 const { ImageUpload } = require("../config/mediaConfig");
@@ -14,6 +15,6 @@ router.get("/allpost", blogController.allPost);
 router.post("/addpost", ImageUpload.single("post_img"), [modelAuth(validatePosts)], blogController.addPost);
 
 // add comment
-router.post("/addcomment", blogController.addComment);
+router.post("/addcomment", [modelAuth(validateComments)], blogController.addComment);
 
 module.exports = router;

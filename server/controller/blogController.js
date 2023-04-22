@@ -1,12 +1,12 @@
 const { postModel } = require("../model/post");
-const Comment = require("../model/comment");
+const {commentModel} = require("../model/comment");
 
 
 exports.allPost = async (req, res) => {
     try {
         const allpost = await postModel.find({ flag: true }).populate([{ path: "user", select: ["full_name", "email", "phone", "user_img", "user_status"] }, { path: "jobcategory" }]);
 
-        const allComment = await Comment.find();
+        const allComment = await commentModel.find();
 
         if (allpost.length) {
             const posts = allpost.map(post => {
@@ -50,9 +50,10 @@ exports.addPost = async (req, res) => {
 
 exports.addComment = async (req, res) => {
     const { post, comment, name, email } = req.body;
+    // console.log("req.body=>", req.body);
     try {
-        if (post, comment, name, email) {
-            const newComment = await Comment({ post, comment, name, email })
+        if (post && comment && name && email) {
+            const newComment = await commentModel({ post, comment, name, email })
             const saveComment = await newComment.save();
             if (saveComment) {
                 return res.status(200).json({ success: true, message: "Comment Added Successfully", data: saveComment });

@@ -25,4 +25,27 @@ const commentSchema = new Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model("comment", commentSchema)
+const commentModel = mongoose.model("comment", commentSchema);
+
+const validateComments = (comment) => {
+    const schema = joi.object({
+        post: joi.string().messages({
+            "string.empty": "Post Id is Required"
+        }),
+        comment: joi.string().required().messages({
+            "string.empty": "Comment is Required"
+        }),
+        name: joi.string().required().messages({
+            "string.empty": "Name is Required"
+        }),
+        email: joi.string().required().messages({
+            "string.empty": "Email is Required"
+        }),
+    })
+    return schema.validate(comment);
+}
+
+module.exports = {
+    commentModel,
+    validateComments,
+}
