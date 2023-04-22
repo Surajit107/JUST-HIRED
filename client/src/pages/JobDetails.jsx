@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const JobDetails = () => {
+    const token = JSON.parse(window.localStorage.getItem("token"))
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -12,7 +13,7 @@ const JobDetails = () => {
             {/* Banner section */}
             <section id="intro">
                 <div className="carousel-item active">
-                    <div className="carousel-background"><img src="./assets/imags/slider/banner2.jpg" alt="" /></div>
+                    <div className="carousel-background"><img src="/assets/imags/slider/banner2.jpg" alt="" /></div>
                     <div className="carousel-container">
                         <div className="carousel-content">
                             <h2 className="font-color-white">Job Result</h2>
@@ -29,7 +30,15 @@ const JobDetails = () => {
                 <div className="container background-color-full-white job-Details">
                     <div className="Exclusive-Product">
                         <h3>Exclusive Product Manager Needed</h3>
-                        <Link to="#" className="Apply-Now">Apply Now</Link>
+
+                        {/* Apply Now Redirection */}
+                        {
+                            token ?
+                                <Link to="/apply" className="Apply-Now">Apply Now</Link>
+                                : <Link to="/login" className="Apply-Now">Apply Now</Link>
+                        }
+
+
                         <h6 className="font-color-orange">Airbnx Expross Soft</h6>
                         <i className="material-icons">place</i>
                         <span className="text">11907 Doyle Cape Cydneyview</span>

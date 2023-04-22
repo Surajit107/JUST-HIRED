@@ -1,17 +1,53 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
+import { addComment, clearCommentData, fetchBlogs } from '../services/slice/BlogSlice'
 
 const BlogDetails = () => {
+    const user = JSON.parse(window.localStorage.getItem("user"))
+    const { blog_id } = useParams()
+    const blog_data = JSON.parse(window.localStorage.getItem("blog_data"))
+    const newBlogData = blog_data?.filter(item => item?._id === blog_id)
+    const commentLength = newBlogData?.comments?.length
+    const [commentData, setCommentData] = useState({ post: blog_id, comment: "", name: user?.full_name, email: user?.email })
+    const dispatch = useDispatch()
+    const { comment_data } = useSelector(state => state.blogSlice)
+
+    // console.log(comment_data);
+
+    const hostUrl = process.env.REACT_APP_HOST
+
+    // handleSubmit
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        // console.log("page=>", commentData);
+        dispatch(addComment(commentData))
+        setCommentData({ post: "", comment: "", name: "", email: "" })
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
+    // console.log(newBlogData);
+    useEffect(() => {
+        if (comment_data) {
+            // console.log("if block");
+            dispatch(fetchBlogs)
+        }
+        return () => {
+            dispatch(clearCommentData())
+        }
+    }, [dispatch, comment_data, commentLength])
+
     return (
         <>
+            {/* Intro */}
             <section id="intro">
                 <div className="carousel-item active">
-                    <div className="carousel-background"><img src="./assets/imags/slider/banner4.jpg" alt="" /></div>
+                    <div className="carousel-background">
+                        <img src="/assets/imags/slider/banner4.jpg" alt="" />
+                    </div>
                     <div className="carousel-container">
                         <div className="carousel-content">
                             <h2 className="font-color-white">Blog Details</h2>
@@ -23,97 +59,67 @@ const BlogDetails = () => {
                 </div>
             </section>
 
-
+            {/* Blog Details */}
             <section id="job-Details">
                 <div className="container background-color-full-white job-Details">
                     <div className="Exclusive-Product">
-                        <h3>Exclusive Product Manager Needed</h3>
-                        <Link to="#" className="Apply-Now">Apply Now</Link>
-                        <h6 className="font-color-orange">Airbnx Expross Soft</h6>
-                        <i className="material-icons">place</i>
-                        <span className="text">11907 Doyle Cape Cydneyview</span>
-                        <h4>Short description</h4>
-                        <p>Porttitor amet condimentum non fringilla nostra scelerisque suscipit torquent sem tempor hac rutrum
-                            posuere etiam, in risus a aenean nibh dapibus quis litora lobortis torquent ligula torquent commodo
-                            pretium massa gravida senectus donec scelerisque cursus sit, sapien quam eros euismod volutpat
-                            commodo convallis interdum, habitant leo himenaeos dictumst lorem taciti quisque.</p>
+                        <h3>{newBlogData[0]?.title}</h3>
+                        <h6 className="font-color-orange">{newBlogData[0]?.sub_title}</h6>
+                        <h4>CONTENT</h4>
+                        <p>
+                            {newBlogData[0]?.content}
+                        </p>
                     </div>
-                    <img src="./assets/imags/blog1.jpg" alt="" className="blog-detail-img" />
-                    <div className="Job-Description">
-                        <h4>Job Description / Responsibility</h4>
-                        <ul>
-                            <li className="list-style">Et vestibulum ullamcorper curae tellus consectetur erat pharetra et cubilia
-                                Nibh est auctor lacus nam lacinia aptent</li>
-                            <li className="list-style">
-                                Vitae sociosqu a nisi cubilia vulputate aliquam vulputate imperdiet tempor arcu fames</li>
-                            <li className="list-style">
-                                Odio habitasse senectus morbi dapibus mauris non primis, nisl ante hendrerit consectetur nulla
-                                phasellus eleifend, ad at scelerisque vulputate habitant tempor</li>
-                            <li className="list-style">
-                                Dictum tortor praesent aliquam lectus est vestibulum, viverra arcu fringilla lectus luctus proin
-                                conubia, et porta pellentesque donec mollisEt vestibulum ullamcorper curae tellus consectetur
-                                erat pharetra et cubilia</li>
-                            <li className="list-style">
-                                Vitae sociosqu a nisi cubilia vulputate aliquam vulputate imperdiet tempor arcu fames</li>
-                            <li className="list-style">
-                                Odio habitasse senectus morbi dapibus mauris non primis, nisl ante hendrerit consectetur nulla
-                                phasellus eleifend, ad at scelerisque vulputate habitant tempor</li>
-                            <li className="list-style">
-                                Dictum tortor praesent aliquam lectus est vestibulum, viverra arcu fringilla lectus luctus proin
-                                conubia</li>
-                        </ul>
-                        <div className="vertical-space-20"></div>
-                        <h4>Experience & Requirement</h4>
-                        <p className="margin-bottom">Suspendisse augue pulvinar placerat himenaeos odio nec turpis augue sem
-                            maecenas, faucibus erat lacinia consectetur sapien suscipit vestibulum venenatis himenaeos elit
-                            etiam lobortis luctus tempor phasellus vitae aliquam aenean tincidunt suscipit rhoncus mauris,
-                            lectus duis aenean fermentum aptent laoreet habitant suspendisse donec malesuada lectus quisque
-                            primis tristique donec mattis, per euismod quisque urna proin ornare, convallis litora curae
-                            dictumst.</p>
-                        <ul>
-                            <li className="list-style">Et vestibulum ullamcorper curae tellus consectetur erat pharetra et cubilia
-                                Nibh est auctor lacus nam lacinia aptent</li>
-                            <li className="list-style">
-                                Et vestibulum ullamcorper curae tellus consectetur erat pharetra et cubilia Nibh est auctor
-                                lacus nam lacinia aptent</li>
-                            <li className="list-style">
-                                Vitae sociosqu a nisi cubilia vulputate aliquam vulputate imperdiet tempor arcu fames</li>
-                            <li className="list-style">
-                                Odio habitasse senectus morbi dapibus mauris non primis, nisl ante hendrerit consectetur nulla
-                                phasellus eleifend, ad at scelerisque vulputate habitant temmollis</li>
-                        </ul>
-                    </div>
+                    <img src={hostUrl + newBlogData[0]?.post_img} alt="" className="blog-detail-img" />
                 </div>
             </section>
+
+            {/* Show comments */}
             <section id="comment" className="background-color-full-white-light">
                 <div className="container">
                     <div className="max-width-80">
                         <h4>comment</h4>
-                        <Link to="#" className="Share">Share</Link>
-                        <div className="media border p-3">
-                            <img src="./assets/imags/comment1.png" alt="John Doe" className="mr-3 rounded-circle imagess"
-                                style={{ "width": "60px" }} />
-                            <div className="media-body">
-                                <h6>Rehmatun Nisal</h6>
-                                <p>Suspendisse augue pulvinar placerat himenaeos odio nec turpis augue sem maecenas, faucibus
-                                    erat lacinia consectetur sapien suscipit vestibulum venenatis himenaeos.</p>
-                            </div>
-                        </div>
-                        <div className="media border p-3 ">
-                            <img src="./assets/imags/comment2.png" alt="John Doe" className="mr-3 rounded-circle imagess"
-                                style={{ "width": "60px" }} />
-                            <div className="media-body">
-                                <h6>Rehmatun Nisal</h6>
-                                <p>Suspendisse augue pulvinar placerat himenaeos odio nec turpis augue sem maecenas, faucibus
-                                    erat lacinia consectetur sapien suscipit vestibulum venenatis himenaeos.</p>
-                            </div>
-                        </div>
+                        {/* <Link to="#" className="Share">Share</Link> */}
+                        {
+                            newBlogData[0]?.comments?.map(item => {
+                                return (
+                                    <div className="media border p-3" key={item?._id}>
+                                        {
+                                            user?.user_img ?
+                                                <img src={hostUrl + user?.user_img} alt="John Doe" className="mr-3 rounded-circle imagess"
+                                                    style={{ "width": "60px" }} />
+                                                :
+                                                <img src="/assets/imags/user.png" alt="John Doe" className="mr-3 rounded-circle imagess"
+                                                    style={{ "width": "60px" }} />
+                                        }
+                                        <div className="media-body">
+                                            <h6>{item?.name}</h6>
+                                            <p>{item?.comment}</p>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+
+                        {/* Add comments */}
                         <div className="media border p-3 padding-none border-none">
-                            <img src="./assets/imags/comment3.png" alt="John Doe" className="mr-3 rounded-circle imagess"
-                                style={{ "width": "60px" }} />
+                            {
+                                user?.user_img ?
+                                    <img src={hostUrl + user?.user_img} alt="John Doe" className="mr-3 rounded-circle imagess"
+                                        style={{ "width": "60px" }} />
+                                    :
+                                    <img src="/assets/imags/user.png" alt="John Doe" className="mr-3 rounded-circle imagess"
+                                        style={{ "width": "60px" }} />
+                            }
                             <div className="media-body">
-                                <form>
-                                    <textarea placeholder="Type commeny" required></textarea>
+                                <form onSubmit={handleSubmit}>
+                                    <textarea
+                                        placeholder="Type commeny"
+                                        required
+                                        name='comment'
+                                        value={commentData?.comment}
+                                        onChange={(e) => setCommentData({ ...commentData, [e.target.name]: e.target.value })}
+                                    ></textarea>
                                     <button className="Post">Post</button>
                                 </form>
                             </div>

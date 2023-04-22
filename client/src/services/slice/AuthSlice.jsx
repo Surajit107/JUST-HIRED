@@ -1,12 +1,22 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from 'react-toastify';
-import { LOGIN, SIGNUP } from "../api/Api";
+import { LOGIN } from "../api/Api";
+import axios from "axios";
 
 // SignUp 
-export const signupReq = createAsyncThunk("/signup", async ({ signupData, toast, navigate }, { rejectWithValue }) => {
+export const signupReq = createAsyncThunk("/signup", async ({ formData, toast, navigate }, { rejectWithValue }) => {
+    const config = {
+        method: 'POST',
+        url: 'http://localhost:4402/api/user/signup',
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+        data: formData
+    }
     try {
-        const res = await SIGNUP(signupData)
-        // console.log(res?.data);
+        console.log(config);
+        const res = await axios(config)
+        console.log(res?.data);
         toast.success(`${res?.data?.message}.\nPlease Login To Continue`, {
             autoClose: 4000,
         })

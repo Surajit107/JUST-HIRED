@@ -10,3 +10,9 @@ export const LOGIN = (loginData) => API.post("/user/signin", loginData)
 
 // jobcategory API
 export const GETCATEGORY = () => API.get("/admin/alljobcategory")
+
+// blog API
+export const FETCHBLOGS = () => API.get("/blogs/allpost")
+
+// add comment API
+export const ADDCOMMENT = (commentData) => API.post("/blogs/addcomment", commentData)
