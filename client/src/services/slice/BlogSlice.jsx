@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ADDCOMMENT, FETCHBLOGS } from "../api/Api";
+import { FETCHBLOGS } from "../api/Api";
+import axios from "axios";
 
 // fetch blog
 export const fetchBlogs = createAsyncThunk("/allpost", async (payload, { rejectWithValue }) => {
@@ -15,9 +16,17 @@ export const fetchBlogs = createAsyncThunk("/allpost", async (payload, { rejectW
 
 // add cooment
 export const addComment = createAsyncThunk("/addcomment", async (commentData, { rejectWithValue }) => {
+    var config = {
+        method: 'post',
+        url: 'http://localhost:4402/api/blogs/addcomment',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: commentData
+    }
     try {
-        const res = await ADDCOMMENT(commentData)
-        console.log(res?.data);
+        const res = await axios(config)
+        // console.log(res?.data);
         return res?.data?.data;
     } catch (err) {
         // console.log(rejectWithValue(err));
@@ -67,13 +76,13 @@ const BlogSlice = createSlice({
             state.loading = false
             state.message = "Success"
             state.comment_data = payload
-            console.log("blog slice=>", payload);
+            // console.log("blog slice=>", payload);
         })
         builder.addCase(addComment.rejected, (state, { payload }) => {
             state.loading = false
             state.message = "Failed"
             state.comment_error = payload?.message
-            console.log("blog slice=>", payload);
+            // console.log("blog slice=>", payload);
         })
     }
 })

@@ -10,19 +10,14 @@ const BlogDetails = () => {
     const newBlogData = blog_data?.filter(item => item?._id === blog_id)
     const [commentData, setCommentData] = useState({ post: blog_id, comment: "", name: user?.full_name, email: user?.email })
     const dispatch = useDispatch()
-    // console.log(newBlogData[0]);
+
+    // console.log(commentLength);
 
     const hostUrl = process.env.REACT_APP_HOST
 
     // handleSubmit
     const handleSubmit = (e) => {
         e.preventDefault()
-        // const newcommentData = new FormData();
-        // newcommentData.append('post', blog_id);
-        // newcommentData.append('comment', "");
-        // newcommentData.append('name', user?.full_name);
-        // newcommentData.append('email', user?.email);
-        
         // console.log("page=>", commentData);
         dispatch(addComment(commentData))
     }
@@ -61,44 +56,57 @@ const BlogDetails = () => {
                         </p>
                     </div>
                     <img src={hostUrl + newBlogData[0]?.post_img} alt="" className="blog-detail-img" />
-                </div>
-            </section>
-            <section id="comment" className="background-color-full-white-light">
-                <div className="container">
-                    <div className="max-width-80">
-                        {/* Show comments */}
-                        <h4>comment</h4>
-                        {/* <Link to="#" className="Share">Share</Link> */}
-                        {
-                            newBlogData[0]?.comments?.map(item => {
-                                return (
-                                    <div className="media border p-3" key={item?._id}>
-                                        <img src="/assets/imags/comment1.png" alt="John Doe" className="mr-3 rounded-circle imagess"
-                                            style={{ "width": "60px" }} />
-                                        <div className="media-body">
-                                            <h6>{item?.name}</h6>
-                                            <p>{item?.comment}</p>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
 
-                        {/* Add comments */}
-                        <div className="media border p-3 padding-none border-none">
-                            <img src="/assets/imags/comment3.png" alt="John Doe" className="mr-3 rounded-circle imagess"
-                                style={{ "width": "60px" }} />
-                            <div className="media-body">
-                                <form onSubmit={handleSubmit}>
-                                    <textarea
-                                        placeholder="Type commeny"
-                                        required
-                                        name='comment'
-                                        value={commentData?.comment}
-                                        onChange={(e) => setCommentData({ ...commentData, [e.target.name]: e.target.value })}
-                                    ></textarea>
-                                    <button className="Post">Post</button>
-                                </form>
+                    {/* Show comments */}
+                    <div id="comment" className="background-color-full-white-light">
+                        <div className="container">
+                            <div className="max-width-80">
+                                <h4>comment</h4>
+                                {/* <Link to="#" className="Share">Share</Link> */}
+                                {
+                                    newBlogData[0]?.comments?.map(item => {
+                                        return (
+                                            <div className="media border p-3" key={item?._id}>
+                                                {
+                                                    user?.user_img ?
+                                                        <img src={hostUrl + user?.user_img} alt="John Doe" className="mr-3 rounded-circle imagess"
+                                                            style={{ "width": "60px" }} />
+                                                        :
+                                                        <img src="/assets/imags/user.png" alt="John Doe" className="mr-3 rounded-circle imagess"
+                                                            style={{ "width": "60px" }} />
+                                                }
+                                                <div className="media-body">
+                                                    <h6>{item?.name}</h6>
+                                                    <p>{item?.comment}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+
+                                {/* Add comments */}
+                                <div className="media border p-3 padding-none border-none">
+                                    {
+                                        user?.user_img ?
+                                            <img src={hostUrl + user?.user_img} alt="John Doe" className="mr-3 rounded-circle imagess"
+                                                style={{ "width": "60px" }} />
+                                            :
+                                            <img src="/assets/imags/user.png" alt="John Doe" className="mr-3 rounded-circle imagess"
+                                                style={{ "width": "60px" }} />
+                                    }
+                                    <div className="media-body">
+                                        <form onSubmit={handleSubmit}>
+                                            <textarea
+                                                placeholder="Type commeny"
+                                                required
+                                                name='comment'
+                                                value={commentData?.comment}
+                                                onChange={(e) => setCommentData({ ...commentData, [e.target.name]: e.target.value })}
+                                            ></textarea>
+                                            <button className="Post">Post</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

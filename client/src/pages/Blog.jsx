@@ -7,6 +7,7 @@ import Pagination from '../components/common/Pagination'
 const Blog = () => {
     const { blog_data } = useSelector(state => state.blogSlice)
     const dispatch = useDispatch()
+    const commentLength = blog_data?.comments?.length
 
     // console.log(blog_data);
 
@@ -15,7 +16,7 @@ const Blog = () => {
     useEffect(() => {
         dispatch(fetchBlogs())
         window.scrollTo(0, 0)
-    }, [dispatch])
+    }, [dispatch, commentLength])
 
     return (
         <>
