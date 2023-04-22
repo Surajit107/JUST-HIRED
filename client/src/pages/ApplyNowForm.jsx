@@ -15,6 +15,7 @@ const ApplyNowForm = () => {
         cv: ""
     }
     const [formValues, setFormValues] = useState(initialState)
+    const [isChecked, setIsChecked] = useState(false)
 
     // handleChange function
     const handleChange = (e) => {
@@ -171,13 +172,25 @@ const ApplyNowForm = () => {
                             <div className="form-group">
                                 <label>Agree with term and conditions</label>
                                 <div className="form-check">
-                                    <input type="checkbox" className="form-check-input " id="exampleCheck1" required />
+                                    <input
+                                        type="checkbox"
+                                        className="form-check-input "
+                                        id="exampleCheck1"
+                                        name='check'
+                                        checked={isChecked}
+                                        onChange={(e) => setIsChecked(e.target.checked)}
+                                        required />
                                     <label className="form-check-label text-left" htmlFor="exampleCheck1">
                                         You understand that submitting an application does not guarantee employment with the company. You agree that all information submitted on your application is true and accurate to the best of your knowledge.
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" className="btn Post-Job-Offer">Apply</button>
+                            {
+                                isChecked ?
+                                    <button type="submit" className="btn Post-Job-Offer">Apply</button>
+                                    :
+                                    <button type="submit" className="btn disable-Post-Job-Offer" disabled>Apply</button>
+                            }
                         </form>
                     </div>
                 </div>

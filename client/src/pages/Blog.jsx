@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBlogs } from '../services/slice/BlogSlice'
-// import Pagination from '../components/common/Pagination'
+import Pagination from '../components/common/Pagination'
 
 const Blog = () => {
     const { blog_data } = useSelector(state => state.blogSlice)
-    const { posts } = blog_data;
     const dispatch = useDispatch()
+
+    // console.log(blog_data);
 
     const hostUrl = process.env.REACT_APP_HOST
 
@@ -29,7 +30,7 @@ const Blog = () => {
                     <div className="row">
 
                         {
-                            posts?.map(item => {
+                            blog_data?.map(item => {
                                 return (
                                     <div className="col-lg-4 col-md-6" key={item?._id}>
                                         <Link to={`/blogdetails/${item?._id}`}>
@@ -46,7 +47,16 @@ const Blog = () => {
                                                     })}
                                                 </Link> | <Link to="#!" className="font-color-black font-size-14">11 min Ago</Link>
                                             </p>
-                                            <p className="space10">
+                                            <p className="space10"
+
+                                            // style={{
+                                            //     maxHeight: "7rem",
+                                            //     overflow: "hidden",
+                                            //     lineHeight: "1.2rem",
+                                            //     textOverflow: "ellipsis",
+                                            //     whiteSpace: "nowrap"
+                                            // }}
+                                            >
                                                 {item?.content}
                                             </p>
                                             <div className="vertical-space-20"></div>
@@ -62,12 +72,12 @@ const Blog = () => {
                         <div className="vertical-space-25"></div>
 
                         {/* Pagination */}
-                        {/* <Pagination /> */}
+                        <Pagination data={blog_data} />
 
                     </div>
                 </div>
                 <div className="vertical-space-60"> </div>
-            </section>
+            </section >
         </>
     )
 }

@@ -2495,8 +2495,9 @@ html .ui-button.ui-state-disabled:active {
 }
 
 .disabled {
-    margin: 0 auto;
-    width: 293px
+    margin: 0;
+    width: auto;
+    text-align: center;
 }
 
 #Clients-Testimonial .testimonial::after {
@@ -2867,7 +2868,7 @@ html .ui-button.ui-state-disabled:active {
 
 #Blog .blog-image {
     width: 100%;
-    height: auto;
+    height: 150px;
     object-fit: cover;
     border: 0 solid transparent
 }
@@ -2902,7 +2903,9 @@ html .ui-button.ui-state-disabled:active {
 
 #Blog .page-item .page-link {
     margin-left: 0;
-    border-radius: 5px
+    border-radius: 5px;
+    width: 50px;
+
 }
 
 #Blog .page-item .active {
@@ -3230,6 +3233,17 @@ html .ui-button.ui-state-disabled:active {
     font-family: proxima nova rg;
     font-size: 18px;
     font-weight: 700
+}
+
+#post_job .disable-Post-Job-Offer {
+    width: 209px;
+    height: 53px;
+    background-color: #f26522;
+    color: #fff;
+    font-family: proxima nova rg;
+    font-size: 18px;
+    font-weight: 700;
+    opacity: 50%;
 }
 
 #post_job .inputfile {
