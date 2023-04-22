@@ -1,13 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
+import { addComment } from '../services/slice/BlogSlice'
 
 const BlogDetails = () => {
+    const user = JSON.parse(window.localStorage.getItem("user"))
     const { blog_id } = useParams()
     const blog_data = JSON.parse(window.localStorage.getItem("blog_data"))
     const newBlogData = blog_data?.filter(item => item?._id === blog_id)
+    const [commentData, setCommentData] = useState({ post: blog_id, comment: "", name: user?.full_name, email: user?.email })
+    const dispatch = useDispatch()
     // console.log(newBlogData[0]);
 
     const hostUrl = process.env.REACT_APP_HOST
+
+    // handleSubmit
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        // const newcommentData = new FormData();
+        // newcommentData.append('post', blog_id);
+        // newcommentData.append('comment', "");
+        // newcommentData.append('name', user?.full_name);
+        // newcommentData.append('email', user?.email);
+        
+        // console.log("page=>", commentData);
+        dispatch(addComment(commentData))
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -71,8 +89,14 @@ const BlogDetails = () => {
                             <img src="/assets/imags/comment3.png" alt="John Doe" className="mr-3 rounded-circle imagess"
                                 style={{ "width": "60px" }} />
                             <div className="media-body">
-                                <form>
-                                    <textarea placeholder="Type commeny" required></textarea>
+                                <form onSubmit={handleSubmit}>
+                                    <textarea
+                                        placeholder="Type commeny"
+                                        required
+                                        name='comment'
+                                        value={commentData?.comment}
+                                        onChange={(e) => setCommentData({ ...commentData, [e.target.name]: e.target.value })}
+                                    ></textarea>
                                     <button className="Post">Post</button>
                                 </form>
                             </div>

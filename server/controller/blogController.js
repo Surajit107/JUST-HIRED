@@ -50,6 +50,8 @@ exports.addPost = async (req, res) => {
 
 exports.addComment = async (req, res) => {
     const { post, comment, name, email } = req.body;
+    // console.log("req.body=>", req.body);
+    // return;
     try {
         if (post, comment, name, email) {
             const newComment = await Comment({ post, comment, name, email })

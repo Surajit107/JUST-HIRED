@@ -47,17 +47,8 @@ const Blog = () => {
                                                     })}
                                                 </Link> | <Link to="#!" className="font-color-black font-size-14">11 min Ago</Link>
                                             </p>
-                                            <p className="space10"
-
-                                            // style={{
-                                            //     maxHeight: "7rem",
-                                            //     overflow: "hidden",
-                                            //     lineHeight: "1.2rem",
-                                            //     textOverflow: "ellipsis",
-                                            //     whiteSpace: "nowrap"
-                                            // }}
-                                            >
-                                                {item?.content}
+                                            <p className="space10">
+                                                {item?.sub_title}
                                             </p>
                                             <div className="vertical-space-20"></div>
                                             <Link to={`/blogdetails/${item?._id}`} className="font-color-orange font-bold">
