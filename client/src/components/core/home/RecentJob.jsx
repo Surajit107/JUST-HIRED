@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ChildJobList from '../../common/joblist/ChildJobList'
-import Pagination from '../../common/Pagination'
+// import Pagination from '../../common/Pagination'
 
 const RecentJob = () => {
     return (
@@ -88,7 +88,7 @@ const RecentJob = () => {
                     </div>
 
                     {/* Pagination */}
-                    <Pagination />
+                    {/* <Pagination /> */}
 
                 </div>
                 <div className="vertical-space-60"></div>

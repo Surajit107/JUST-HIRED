@@ -1,17 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactPaginate from 'react-paginate'
 
-const Pagination = () => {
-    const [pageNumber, setPageNumber] = useState(0)
-    const userPerpage = 3
-    const data = [1, 2, 3, 4, 5, 6, 7]
-    const pagesVisited = pageNumber * userPerpage
-    const list_data = data?.slice(pagesVisited, pagesVisited + userPerpage)
-    const pageCount = Math.ceil(list_data.length / userPerpage)
-
-    const changePage = (data) => {
-        setPageNumber(data.selected)
-    }
+const Pagination = ({ pageCount, changePage }) => {
 
     return (
         <>
