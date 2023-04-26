@@ -46,7 +46,7 @@ const BlogDetails = () => {
             <section id="intro">
                 <div className="carousel-item active">
                     <div className="carousel-background">
-                        <img src="/assets/imags/slider/banner4.jpg" alt="" />
+                        <img src={hostUrl + newBlogData[0]?.post_img} alt="" />
                     </div>
                     <div className="carousel-container">
                         <div className="carousel-content">
