@@ -7,23 +7,20 @@ import axios from "axios";
 export const signupReq = createAsyncThunk("/signup", async ({ formData, toast, navigate }, { rejectWithValue }) => {
     const config = {
         method: 'POST',
-        url: 'http://localhost:4402/api/user/signup',
+        url: `${process.env.REACT_APP_BASE_URL}/user/signup`,
         headers: {
             'Content-Type': 'multipart/form-data'
         },
         data: formData
     }
     try {
-        console.log(config);
         const res = await axios(config)
-        console.log(res?.data);
         toast.success(`${res?.data?.message}.\nPlease Login To Continue`, {
             autoClose: 4000,
         })
         navigate('/login')
         return res?.data
     } catch (err) {
-        // console.log(rejectWithValue(err.response.data));
         return rejectWithValue(err.response.data)
     }
 })
@@ -33,14 +30,12 @@ export const signupReq = createAsyncThunk("/signup", async ({ formData, toast, n
 export const loginReq = createAsyncThunk("/signin", async ({ loginData, toast, navigate }, { rejectWithValue }) => {
     try {
         const res = await LOGIN(loginData)
-        // console.log(res?.data);
         toast.success(res?.data?.message, {
             autoClose: 3500,
         })
         navigate('/')
         return res?.data
     } catch (err) {
-        // console.log(rejectWithValue(err.response.data));
         return rejectWithValue(err.response.data)
     }
 })
@@ -80,7 +75,6 @@ const AuthSlice = createSlice({
             state.message = "Failed"
             state.loading = false
             state.error = payload
-            // console.log(payload?.message);
             toast.error(payload?.message, {
                 autoClose: 3500,
             })
@@ -95,7 +89,6 @@ const AuthSlice = createSlice({
             state.message = "Success"
             state.loading = false
             state.login_data = payload
-            // console.log("login-payload=>", payload);
             window.localStorage.setItem("user", JSON.stringify(payload?.user))
             window.localStorage.setItem("token", JSON.stringify(payload?.token))
         })
@@ -103,7 +96,6 @@ const AuthSlice = createSlice({
             state.message = "Failed"
             state.loading = false
             state.error = payload
-            // console.log(payload?.message);
             toast.error(payload?.message, {
                 autoClose: 3500,
             })

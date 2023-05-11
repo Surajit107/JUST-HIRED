@@ -10,7 +10,7 @@ const SignUp = () => {
         email: "",
         phone: "",
         password: "",
-        // user_img: ""
+        user_img: ""
     })
     const [confPassword, setConfPassword] = useState({ confPassword: "" })
     const navigate = useNavigate()
@@ -57,7 +57,7 @@ const SignUp = () => {
                         <div className="row d-flex justify-content-center">
                             <div className="vertical-space-5"></div>
                             <div className="vertical-space-40"></div>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} encType="multipart/form-data">
                                 <div className="row" style={{ "marginLeft": "100px" }}>
 
                                     {/* Full Name */}
@@ -85,8 +85,8 @@ const SignUp = () => {
                                                 type="file"
                                                 id="file"
                                                 name='user_img'
-                                                value={signupData?.user_img}
-                                                onChange={handleChange}
+                                                // value={signupData?.user_img}
+                                                onChange={(e) => setSignupData({ ...signupData, [e.target.name]: e.target.files[0] })}
                                             />
                                             <label style={{ width: "100%" }} htmlFor="file" className="btn-2">Upload Your Picture
                                                 <i className="fa-solid fa-arrow-up-from-bracket mx-2" style={{ color: "#ffffff" }}></i>

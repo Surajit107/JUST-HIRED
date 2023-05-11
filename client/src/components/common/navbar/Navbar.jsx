@@ -11,6 +11,8 @@ const Navbar = () => {
     const user = JSON.parse(window.localStorage.getItem("user"))
     const token = JSON.parse(window.localStorage.getItem("token"))
 
+    const hostUrl = process.env.REACT_APP_HOST
+
     // logOut func
     const logOut = () => {
         dispatch(doLogOut())
@@ -46,7 +48,18 @@ const Navbar = () => {
                                             {
                                                 token ?
                                                     <li className="dropdown">
-                                                        <Link to="#!" className="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                        <Link to="#!" className="dropdown-toggle" data-toggle="dropdown">
+                                                            {
+                                                                user?.user_img ?
+                                                                    <span className='user_img'>
+                                                                        <img className='dp' src={hostUrl + user?.user_img} alt="" />
+                                                                    </span>
+                                                                    :
+                                                                    <span className='user_img'>
+                                                                        <img className='dp' src="./assets/imags/user.png" alt="" />
+                                                                    </span>
+                                                            }
+
                                                             {
                                                                 user?.displayName ?
                                                                     user?.displayName

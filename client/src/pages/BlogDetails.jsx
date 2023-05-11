@@ -87,7 +87,7 @@ const BlogDetails = () => {
                                         {
                                             user?.user_img ?
                                                 <img src={hostUrl + user?.user_img} alt="John Doe" className="mr-3 rounded-circle imagess"
-                                                    style={{ "width": "60px" }} />
+                                                    style={{ width: "60px",height:"50px",objectFit:"contain" }} />
                                                 :
                                                 <img src="/assets/imags/user.png" alt="John Doe" className="mr-3 rounded-circle imagess"
                                                     style={{ "width": "60px" }} />
